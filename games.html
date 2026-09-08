@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asim Tech Kids - Games</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  background:linear-gradient(135deg,#6a11cb,#2575fc,#00c6ff);
+  padding:20px;
+  color:#222;
+}
+
+.header{
+  text-align:center;
+  color:white;
+  padding:20px 10px;
+}
+
+.header h1{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.header p{
+  font-size:17px;
+}
+
+.container{
+  max-width:850px;
+  margin:auto;
+}
+
+.game-menu{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:15px;
+}
+
+.game-card{
+  border:none;
+  border-radius:25px;
+  padding:25px 15px;
+  min-height:170px;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
+  transition:.25s;
+  font-size:18px;
+}
+
+.game-card:hover{
+  transform:translateY(-5px) scale(1.02);
+}
+
+.game-card .icon{
+  font-size:55px;
+  display:block;
+  margin-bottom:10px;
+}
+
+.number-card{
+  background:linear-gradient(135deg,#ffe259,#ffa751);
+}
+
+.colour-card{
+  background:linear-gradient(135deg,#43e97b,#38f9d7);
+}
+
+.memory-card{
+  background:linear-gradient(135deg,#fa709a,#fee140);
+}
+
+.game-area{
+  display:none;
+  background:white;
+  border-radius:28px;
+  padding:25px 18px;
+  margin-top:25px;
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+  text-align:center;
+}
+
+.game-area h2{
+  color:#6a11cb;
+  margin-bottom:15px;
+}
+
+.score{
+  font-size:20px;
+  font-weight:bold;
+  margin:12px;
+}
+
+.question{
+  font-size:28px;
+  font-weight:bold;
+  margin:20px 0;
+}
+
+.options{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  max-width:500px;
+  margin:auto;
+}
+
+.option{
+  border:none;
+  padding:18px;
+  border-radius:18px;
+  background:#eef2ff;
+  font-size:22px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.option:hover{
+  background:#dbe4ff;
+}
+
+.message{
+  min-height:35px;
+  margin:15px;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.back{
+  border:none;
+  background:#6a11cb;
+  color:white;
+  padding:12px 22px;
+  border-radius:20px;
+  font-size:17px;
+  cursor:pointer;
+  margin-top:15px;
+}
+
+.memory-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  max-width:500px;
+  margin:20px auto;
+}
+
+.memory{
+  height:75px;
+  border:none;
+  border-radius:15px;
+  background:#6a11cb;
+  color:white;
+  font-size:35px;
+  cursor:pointer;
+}
+
+.colour-options{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  max-width:500px;
+  margin:auto;
+}
+
+.colour-btn{
+  height:70px;
+  border:none;
+  border-radius:18px;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.footer{
+  text-align:center;
+  color:white;
+  margin-top:25px;
+  font-size:14px;
+}
+
+@media(max-width:500px){
+  .header h1{
+    font-size:27px;
+  }
+
+  .options,
+  .colour-options{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .memory-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .memory{
+    height:65px;
+    font-size:28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>🎮 Asim Tech Kids Games</h1>
+    <p>Learn • Play • Win ⭐</p>
+  </div>
+
+  <!-- GAME MENU -->
+  <div id="menu" class="game-menu">
+
+    <button class="game-card number-card" onclick="startNumberGame()">
+      <span class="icon">🔢</span>
+      <b>Number Game</b><br>
+      <small>Find the correct number</small>
+    </button>
+
+    <button class="game-card colour-card" onclick="startColourGame()">
+      <span class="icon">🌈</span>
+      <b>Colour Game</b><br>
+      <small>Find the correct colour</small>
+    </button>
+
+    <button class="game-card memory-card" onclick="startMemoryGame()">
+      <span class="icon">🧠</span>
+      <b>Memory Match</b><br>
+      <small>Match the animals</small>
+    </button>
+
+  </div>
+
+  <!-- NUMBER GAME -->
+  <div id="numberGame" class="game-area">
+
+    <h2>🔢 Number Game</h2>
+
+    <div class="score">
+      ⭐ Score: <span id="numberScore">0</span>
+    </div>
+
+    <div class="question" id="numberQuestion">
+      Which number is this?
+    </div>
+
+    <div class="options" id="numberOptions"></div>
+
+    <div class="message" id="numberMessage"></div>
+
+    <button class="back" onclick="showMenu()">🏠 Games Menu</button>
+
+  </div>
+
+  <!-- COLOUR GAME -->
+  <div id="colourGame" class="game-area">
+
+    <h2>🌈 Colour Game</h2>
+
+    <div class="score">
+      ⭐ Score: <span id="colourScore">0</span>
+    </div>
+
+    <div class="question">
+      Find: <span id="colourQuestion"></span>
+    </div>
+
+    <div class="colour-options" id="colourOptions"></div>
+
+    <div class="message" id="colourMessage"></div>
+
+    <button class="back" onclick="showMenu()">🏠 Games Menu</button>
+
+  </div>
+
+  <!-- MEMORY GAME -->
+  <div id="memoryGame" class="game-area">
+
+    <h2>🧠 Memory Match</h2>
+
+    <div class="score">
+      ⭐ Score: <span id="memoryScore">0</span>
+    </div>
+
+    <p>Find the matching animals!</p>
+
+    <div class="memory-grid" id="memoryGrid"></div>
+
+    <div class="message" id="memoryMessage"></div>
+
+    <button class="back" onclick="showMenu()">🏠 Games Menu</button>
+
+  </div>
+
+  <div class="footer">
+    ❤️ Powered by Asim Tech
+  </div>
+
+</div>
+
+<script>
+
+/* =========================
+   SPEECH
+========================= */
+
+function speak(text){
+
+  if("speechSynthesis" in window){
+
+    speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 0.75;
+    speech.pitch = 1.2;
+
+    speechSynthesis.speak(speech);
+  }
+}
+
+
+/* =========================
+   COMMON
+========================= */
+
+function hideGames(){
+
+  document.getElementById("numberGame").style.display="none";
+  document.getElementById("colourGame").style.display="none";
+  document.getElementById("memoryGame").style.display="none";
+}
+
+function showMenu(){
+
+  hideGames();
+
+  document.getElementById("menu").style.display="grid";
+
+  speechSynthesis.cancel();
+}
+
+
+/* =========================
+   NUMBER GAME
+========================= */
+
+let numberScore=0;
+let correctNumber=0;
+
+function startNumberGame(){
+
+  document.getElementById("menu").style.display="none";
+  hideGames();
+
+  document.getElementById("numberGame").style.display="block";
+
+  numberScore=0;
+
+  document.getElementById("numberScore").textContent=numberScore;
+
+  newNumberQuestion();
+}
+
+
+function newNumberQuestion(){
+
+  correctNumber=Math.floor(Math.random()*10)+1;
+
+  document.getElementById("numberQuestion").textContent=
+    "Find number " + correctNumber;
+
+  const options=[];
+
+  options.push(correctNumber);
+
+  while(options.length<4){
+
+    const n=Math.floor(Math.random()*10)+1;
+
+    if(!options.includes(n)){
+      options.push(n);
+    }
+  }
+
+  options.sort(()=>Math.random()-0.5);
+
+  const area=document.getElementById("numberOptions");
+
+  area.innerHTML="";
+
+  options.forEach(n=>{
+
+    const button=document.createElement("button");
+
+    button.className="option";
+
+    button.textContent=n;
+
+    button.onclick=function(){
+
+      checkNumber(n);
+    };
+
+    area.appendChild(button);
+
+  });
+
+  document.getElementById("numberMessage").textContent="";
+
+  speak("Find number " + correctNumber);
+}
+
+
+function checkNumber(n){
+
+  if(n===correctNumber){
+
+    numberScore++;
+
+    document.getElementById("numberScore").textContent=numberScore;
+
+    document.getElementById("numberMessage").textContent=
+      "🎉 Correct! Great job!";
+
+    speak("Correct! Great job!");
+
+    setTimeout(newNumberQuestion,900);
+
+  }else{
+
+    document.getElementById("numberMessage").textContent=
+      "❌ Try again!";
+
+    speak("Try again!");
+  }
+}
+
+
+/* =========================
+   COLOUR GAME
+========================= */
+
+let colourScore=0;
+let correctColour="";
+
+const colours=[
+  {name:"Red",code:"#ff4d4d"},
+  {name:"Blue",code:"#4285f4"},
+  {name:"Green",code:"#34a853"},
+  {name:"Yellow",code:"#ffd43b"},
+  {name:"Orange",code:"#ff922b"},
+  {name:"Purple",code:"#9b59b6"},
+  {name:"Pink",code:"#ff69b4"},
+  {name:"Brown",code:"#8b5a2b"}
+];
+
+
+function startColourGame(){
+
+  document.getElementById("menu").style.display="none";
+  hideGames();
+
+  document.getElementById("colourGame").style.display="block";
+
+  colourScore=0;
+
+  document.getElementById("colourScore").textContent=colourScore;
+
+  newColourQuestion();
+}
+
+
+function newColourQuestion(){
+
+  const selected=
+    colours[Math.floor(Math.random()*colours.length)];
+
+  correctColour=selected.name;
+
+  document.getElementById("colourQuestion").textContent=
+    correctColour;
+
+  const options=[selected];
+
+  while(options.length<4){
+
+    const random=
+      colours[Math.floor(Math.random()*colours.length)];
+
+    if(!options.some(x=>x.name===random.name)){
+      options.push(random);
+    }
+  }
+
+  options.sort(()=>Math.random()-0.5);
+
+  const area=document.getElementById("colourOptions");
+
+  area.innerHTML="";
+
+  options.forEach(c=>{
+
+    const button=document.createElement("button");
+
+    button.className="colour-btn";
+
+    button.style.background=c.code;
+
+    button.textContent=c.name;
+
+    button.onclick=function(){
+
+      checkColour(c.name);
+    };
+
+    area.appendChild(button);
+
+  });
+
+  document.getElementById("colourMessage").textContent="";
+
+  speak("Find " + correctColour);
+}
+
+
+function checkColour(name){
+
+  if(name===correctColour){
+
+    colourScore++;
+
+    document.getElementById("colourScore").textContent=
+      colourScore;
+
+    document.getElementById("colourMessage").textContent=
+      "🌈 Correct! Amazing!";
+
+    speak("Correct! Amazing!");
+
+    setTimeout(newColourQuestion,900);
+
+  }else{
+
+    document.getElementById("colourMessage").textContent=
+      "❌ Try again!";
+
+    speak("Try again!");
+  }
+}
+
+
+/* =========================
+   MEMORY GAME
+========================= */
+
+let memoryCards=[];
+let firstCard=null;
+let secondCard=null;
+let lockBoard=false;
+let memoryScore=0;
+
+const animals=[
+  "🐶","🐱","🦁","🐵",
+  "🐶","🐱","🦁","🐵"
+];
+
+
+function startMemoryGame(){
+
+  document.getElementById("menu").style.display="none";
+  hideGames();
+
+  document.getElementById("memoryGame").style.display="block";
+
+  memoryScore=0;
+
+  document.getElementById("memoryScore").textContent=memoryScore;
+
+  createMemoryGame();
+
+  speak("Find the matching animals");
+}
+
+
+function createMemoryGame(){
+
+  memoryCards=[...animals];
+
+  memoryCards.sort(()=>Math.random()-0.5);
+
+  firstCard=null;
+  secondCard=null;
+  lockBoard=false;
+
+  const grid=document.getElementById("memoryGrid");
+
+  grid.innerHTML="";
+
+  memoryCards.forEach((animal,index)=>{
+
+    const button=document.createElement("button");
+
+    button.className="memory";
+
+    button.textContent="❓";
+
+    button.dataset.animal=animal;
+
+    button.onclick=function(){
+
+      flipCard(button);
+    };
+
+    grid.appendChild(button);
+
+  });
+
+  document.getElementById("memoryMessage").textContent="";
+}
+
+
+function flipCard(card){
+
+  if(lockBoard) return;
+
+  if(card===firstCard) return;
+
+  card.textContent=card.dataset.animal;
+
+  if(!firstCard){
+
+    firstCard=card;
+    return;
+  }
+
+  secondCard=card;
+
+  checkMemory();
+}
+
+
+function checkMemory(){
+
+  lockBoard=true;
+
+  if(firstCard.dataset.animal===secondCard.dataset.animal){
+
+    memoryScore++;
+
+    document.getElementById("memoryScore").textContent=
+      memoryScore;
+
+    document.getElementById("memoryMessage").textContent=
+      "🎉 Match! Well done!";
+
+    speak("Match! Well done!");
+
+    firstCard=null;
+    secondCard=null;
+    lockBoard=false;
+
+    if(memoryScore===4){
+
+      setTimeout(()=>{
+
+        document.getElementById("memoryMessage").textContent=
+          "🏆 Amazing! You completed the game!";
+
+        speak("Amazing! You completed the game!");
+
+      },500);
+    }
+
+  }else{
+
+    document.getElementById("memoryMessage").textContent=
+      "😊 Try another pair!";
+
+    speak("Try another pair!");
+
+    setTimeout(()=>{
+
+      firstCard.textContent="❓";
+      secondCard.textContent="❓";
+
+      firstCard=null;
+      secondCard=null;
+
+      lockBoard=false;
+
+    },900);
+  }
+}
+
+</script>
+
+</body>
+</html>
