@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colours - Asim Tech Kids</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f7ff;
+      text-align: center;
+    }
+
+    header {
+      background: #6c5ce7;
+      color: white;
+      padding: 25px 10px;
+      border-radius: 0 0 30px 30px;
+    }
+
+    h1 {
+      margin: 5px;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 8px;
+      font-size: 16px;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .title {
+      font-size: 23px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .colour-button {
+      border: none;
+      border-radius: 22px;
+      padding: 20px 10px;
+      font-size: 19px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    .colour-button:active {
+      transform: scale(0.94);
+    }
+
+    .circle {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      border: 3px solid white;
+    }
+
+    .red { background: red; }
+    .blue { background: blue; }
+    .green { background: green; }
+    .yellow { background: #f1c40f; color: black; }
+    .orange { background: orange; }
+    .purple { background: purple; }
+    .pink { background: hotpink; }
+    .brown { background: brown; }
+    .black { background: black; }
+    .white {
+      background: white;
+      color: black;
+      border: 2px solid #ddd;
+    }
+
+    .sound-button {
+      margin-top: 25px;
+      background: #00b894;
+      color: white;
+      border: none;
+      padding: 15px 28px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .home-button {
+      margin-top: 20px;
+      background: #6c5ce7;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 25px;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 25px;
+      padding: 18px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🎨 Asim Tech Kids</h1>
+  <p>Learn Colours</p>
+</header>
+
+<div class="container">
+
+  <div class="title">
+    🌈 Tap a Colour to Hear It
+  </div>
+
+  <div class="grid">
+
+    <button class="colour-button red" onclick="speak('Red')">
+      <div class="circle red"></div>
+      Red
+    </button>
+
+    <button class="colour-button blue" onclick="speak('Blue')">
+      <div class="circle blue"></div>
+      Blue
+    </button>
+
+    <button class="colour-button green" onclick="speak('Green')">
+      <div class="circle green"></div>
+      Green
+    </button>
+
+    <button class="colour-button yellow" onclick="speak('Yellow')">
+      <div class="circle yellow"></div>
+      Yellow
+    </button>
+
+    <button class="colour-button orange" onclick="speak('Orange')">
+      <div class="circle orange"></div>
+      Orange
+    </button>
+
+    <button class="colour-button purple" onclick="speak('Purple')">
+      <div class="circle purple"></div>
+      Purple
+    </button>
+
+    <button class="colour-button pink" onclick="speak('Pink')">
+      <div class="circle pink"></div>
+      Pink
+    </button>
+
+    <button class="colour-button brown" onclick="speak('Brown')">
+      <div class="circle brown"></div>
+      Brown
+    </button>
+
+    <button class="colour-button black" onclick="speak('Black')">
+      <div class="circle black"></div>
+      Black
+    </button>
+
+    <button class="colour-button white" onclick="speak('White')">
+      <div class="circle white"></div>
+      White
+    </button>
+
+  </div>
+
+  <button class="sound-button" onclick="speak('Colours')">
+    🔊 Listen to Colours
+  </button>
+
+  <br>
+
+  <button class="home-button" onclick="location.href='index.html'">
+    🏠 Home
+  </button>
+
+</div>
+
+<footer>
+  Powered by Asim Tech ❤️
+</footer>
+
+<script>
+
+function speak(text) {
+
+  if ('speechSynthesis' in window) {
+
+    window.speechSynthesis.cancel();
+
+    const message =
+      new SpeechSynthesisUtterance(text);
+
+    message.lang = "en-US";
+    message.rate = 0.8;
+    message.pitch = 1.2;
+
+    window.speechSynthesis.speak(message);
+  }
+
+}
+
+</script>
+
+</body>
+
+</html>
