@@ -3,412 +3,254 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-  <title>English Alphabet - Asim Tech Kids</title>
+<title>Asim Tech Kids Learning</title>
 
+<style>
 
-  <style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+body {
+  margin: 0;
+  background: #f5f7ff;
+  text-align: center;
+}
 
+header {
+  background: #6c5ce7;
+  color: white;
+  padding: 28px 10px;
+  border-radius: 0 0 30px 30px;
+}
 
-    body {
-      margin: 0;
-      background: #f5f7ff;
-      text-align: center;
-      overflow-x: hidden;
-    }
+h1 {
+  margin: 5px;
+  font-size: 29px;
+}
 
+header p {
+  margin: 8px;
+  font-size: 16px;
+}
 
-    header {
-      background: #6c5ce7;
-      color: white;
-      padding: 25px 10px;
-      border-radius: 0 0 30px 30px;
-    }
+.container {
+  padding: 20px;
+  max-width: 650px;
+  margin: auto;
+}
 
+.welcome {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 0 22px;
+}
 
-    h1 {
-      margin: 5px;
-      font-size: 28px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
 
+.learn-button {
+  border: none;
+  border-radius: 22px;
+  padding: 22px 8px;
+  font-size: 18px;
+  font-weight: bold;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+  cursor: pointer;
+  min-height: 125px;
+}
 
-    header p {
-      margin: 8px;
-      font-size: 16px;
-    }
+.learn-button:active {
+  transform: scale(0.95);
+}
 
+.icon {
+  font-size: 42px;
+  display: block;
+  margin-bottom: 8px;
+}
 
-    .container {
-      padding: 20px;
-      max-width: 650px;
-      margin: auto;
-    }
+.bangla-icon {
+  font-size: 42px;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
 
+.sound-button {
+  margin-top: 25px;
+  background: #00b894;
+  color: white;
+  border: none;
+  padding: 16px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+}
 
-    .learning-card {
-      background: white;
-      border-radius: 30px;
-      padding: 25px 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
+footer {
+  margin-top: 30px;
+  padding: 18px;
+  color: #666;
+  font-size: 14px;
+}
 
-
-    .letter {
-      font-size: 100px;
-      font-weight: bold;
-      color: #6c5ce7;
-      margin: 5px;
-      animation: none;
-    }
-
-
-    .letter.animate {
-      animation: bounce 0.7s ease;
-    }
-
-
-    @keyframes bounce {
-
-      0% {
-        transform: scale(0.5) rotate(-10deg);
-        opacity: 0;
-      }
-
-      50% {
-        transform: scale(1.3) rotate(10deg);
-      }
-
-      100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 1;
-      }
-
-    }
-
-
-    .word {
-      font-size: 30px;
-      font-weight: bold;
-      margin: 10px;
-    }
-
-
-    .emoji {
-      font-size: 75px;
-      margin: 10px;
-    }
-
-
-    .listen-button {
-      background: #00b894;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      border-radius: 30px;
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-
-    .letters {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-
-    .letter-button {
-      border: none;
-      background: white;
-      border-radius: 15px;
-      padding: 14px 5px;
-      font-size: 20px;
-      font-weight: bold;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-    }
-
-
-    .letter-button:active {
-      transform: scale(0.9);
-    }
-
-
-    .home-button {
-      margin-top: 20px;
-      background: #6c5ce7;
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 25px;
-      font-size: 17px;
-      font-weight: bold;
-    }
-
-
-    footer {
-      margin-top: 25px;
-      padding: 18px;
-      color: #666;
-      font-size: 14px;
-    }
-
-
-    .star {
-      position: fixed;
-      font-size: 25px;
-      pointer-events: none;
-      animation: fly 1s ease-out forwards;
-    }
-
-
-    @keyframes fly {
-
-      0% {
-        transform: translate(0,0) scale(0.5);
-        opacity: 1;
-      }
-
-      100% {
-        transform:
-          translate(
-            var(--x),
-            var(--y)
-          )
-          scale(1.5);
-        opacity: 0;
-      }
-
-    }
-
-  </style>
+</style>
 
 </head>
-
 
 <body>
 
 
 <header>
 
-  <h1>🔤 Asim Tech Kids</h1>
+<h1>🌟 Asim Tech Kids</h1>
 
-  <p>Learn English Alphabet</p>
+<p>Fun Learning for Kids</p>
 
 </header>
-
 
 
 <div class="container">
 
 
-  <div class="learning-card">
+<div class="welcome">
+
+👋 Welcome Little Learner!
+
+</div>
 
 
-    <div class="letter" id="letter">
-      A
-    </div>
+<div class="grid">
 
 
-    <div class="word" id="word">
-      Apple
-    </div>
+<!-- ENGLISH -->
+
+<button class="learn-button"
+onclick="openPage('alphabet.html')">
+
+<span class="icon">🔤</span>
+
+English
+
+</button>
 
 
-    <div class="emoji" id="emoji">
-      🍎
-    </div>
+<!-- NUMBERS -->
+
+<button class="learn-button"
+onclick="openPage('numbers.html')">
+
+<span class="icon">🔢</span>
+
+Numbers
+
+</button>
 
 
-    <button class="listen-button"
-            onclick="listenCurrent()">
+<!-- BANGLA -->
 
-      🔊 Listen
+<button class="learn-button"
+onclick="openPage('bangla.html')">
 
-    </button>
+<span class="bangla-icon">অ</span>
 
+বাংলা
 
-  </div>
-
-
-
-  <div class="letters" id="letters">
-  </div>
+</button>
 
 
+<!-- ANIMALS -->
 
-  <button class="home-button"
-          onclick="location.href='index.html'">
+<button class="learn-button"
+onclick="openPage('animals.html')">
 
-    🏠 Home
+<span class="icon">🐯</span>
 
-  </button>
+Animals
+
+</button>
+
+
+<!-- COLOURS -->
+
+<button class="learn-button"
+onclick="openPage('colours.html')">
+
+<span class="icon">🎨</span>
+
+Colours
+
+</button>
+
+
+<!-- QUIZ -->
+
+<button class="learn-button"
+onclick="openPage('quiz.html')">
+
+<span class="icon">🧩</span>
+
+Quiz
+
+</button>
 
 
 </div>
 
 
+<button class="sound-button"
+onclick="welcomeSound()">
+
+🔊 Hear Welcome
+
+</button>
+
+
+</div>
+
 
 <footer>
 
-  Powered by Asim Tech ❤️
+Powered by Asim Tech ❤️
 
 </footer>
-
 
 
 <script>
 
 
-const alphabet = [
+/* OPEN PAGE */
 
-  ["A", "Apple", "🍎"],
-  ["B", "Ball", "⚽"],
-  ["C", "Cat", "🐱"],
-  ["D", "Dog", "🐶"],
-  ["E", "Elephant", "🐘"],
-  ["F", "Fish", "🐟"],
-  ["G", "Grapes", "🍇"],
-  ["H", "Horse", "🐴"],
-  ["I", "Ice Cream", "🍦"],
-  ["J", "Juice", "🧃"],
-  ["K", "Kite", "🪁"],
-  ["L", "Lion", "🦁"],
-  ["M", "Monkey", "🐒"],
-  ["N", "Nest", "🪺"],
-  ["O", "Orange", "🍊"],
-  ["P", "Parrot", "🦜"],
-  ["Q", "Queen", "👑"],
-  ["R", "Rabbit", "🐰"],
-  ["S", "Sun", "☀️"],
-  ["T", "Tiger", "🐯"],
-  ["U", "Umbrella", "☂️"],
-  ["V", "Van", "🚐"],
-  ["W", "Watch", "⌚"],
-  ["X", "Xylophone", "🎵"],
-  ["Y", "Yak", "🐂"],
-  ["Z", "Zebra", "🦓"]
+function openPage(page) {
 
-];
-
-
-let currentIndex = 0;
-
-
-
-function createLetterButtons() {
-
-  const container =
-    document.getElementById("letters");
-
-
-  alphabet.forEach(function(item, index) {
-
-    const button =
-      document.createElement("button");
-
-
-    button.className =
-      "letter-button";
-
-
-    button.innerText =
-      item[0];
-
-
-    button.onclick =
-      function() {
-
-        showLetter(index);
-
-      };
-
-
-    container.appendChild(button);
-
-  });
+  window.location.href = page;
 
 }
 
 
+/* WELCOME SOUND */
 
-function showLetter(index) {
-
-  currentIndex = index;
-
-
-  const item =
-    alphabet[index];
-
-
-  const letter =
-    document.getElementById("letter");
-
-
-  const word =
-    document.getElementById("word");
-
-
-  const emoji =
-    document.getElementById("emoji");
-
-
-  letter.classList.remove("animate");
-
-
-  void letter.offsetWidth;
-
-
-  letter.classList.add("animate");
-
-
-  letter.innerText =
-    item[0];
-
-
-  word.innerText =
-    item[1];
-
-
-  emoji.innerText =
-    item[2];
-
-
-  listenCurrent();
-
-
-  celebration();
-
-}
-
-
-
-function listenCurrent() {
-
-  const item =
-    alphabet[currentIndex];
-
+function welcomeSound() {
 
   speak(
-    item[0] +
-    " for " +
-    item[1]
+    "Welcome to Asim Tech Kids Learning"
   );
 
 }
 
 
+/* SPEECH */
 
 function speak(text) {
 
@@ -416,95 +258,23 @@ function speak(text) {
 
     window.speechSynthesis.cancel();
 
-
     const message =
       new SpeechSynthesisUtterance(text);
-
 
     message.lang =
       "en-US";
 
-
     message.rate =
-      0.75;
-
+      0.8;
 
     message.pitch =
       1.2;
-
 
     window.speechSynthesis.speak(message);
 
   }
 
 }
-
-
-
-function celebration() {
-
-  const symbols =
-    ["⭐", "✨", "🌟", "🎉", "💫"];
-
-
-  for (let i = 0; i < 8; i++) {
-
-    const star =
-      document.createElement("div");
-
-
-    star.className =
-      "star";
-
-
-    star.innerText =
-      symbols[
-        Math.floor(
-          Math.random() * symbols.length
-        )
-      ];
-
-
-    star.style.left =
-      "50%";
-
-
-    star.style.top =
-      "45%";
-
-
-    star.style.setProperty(
-      "--x",
-      (Math.random() * 300 - 150) + "px"
-    );
-
-
-    star.style.setProperty(
-      "--y",
-      (Math.random() * 300 - 150) + "px"
-    );
-
-
-    document.body.appendChild(star);
-
-
-    setTimeout(function() {
-
-      star.remove();
-
-    }, 1000);
-
-  }
-
-}
-
-
-
-createLetterButtons();
-
-
-showLetter(0);
-
 
 </script>
 
