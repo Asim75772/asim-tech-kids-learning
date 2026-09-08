@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asim Tech - Alphabet</title>
+</head>
+
+<body style="text-align:center; font-family:Arial; background:#f5f7ff;">
+
+<h1>🔤 A–Z Learning</h1>
+<p>Tap a letter to hear it!</p>
+
+<div id="letters"></div>
+
+<script>
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+for (let letter of letters) {
+  let button = document.createElement("button");
+
+  button.innerText = letter;
+  button.style.fontSize = "30px";
+  button.style.margin = "6px";
+  button.style.padding = "15px 20px";
+  button.style.borderRadius = "15px";
+  button.style.border = "none";
+  button.style.background = "white";
+
+  button.onclick = function() {
+    let sound = new SpeechSynthesisUtterance(letter);
+    sound.rate = 0.7;
+    sound.pitch = 1.2;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(sound);
+  };
+
+  document.getElementById("letters").appendChild(button);
+}
+</script>
+
+</body>
+</html>
