@@ -2,284 +2,337 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Asim Tech - Animals</title>
+<meta charset="UTF-8">
 
-  <style>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<title>Animals - Asim Tech Kids</title>
 
-    body {
-      margin: 0;
-      background: #eefbf3;
-      text-align: center;
-    }
+<style>
 
-    header {
-      background: #00b894;
-      color: white;
-      padding: 20px;
-      border-radius: 0 0 25px 25px;
-    }
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-    h1 {
-      margin: 5px;
-      font-size: 28px;
-    }
+body {
+  margin: 0;
+  background: #f5f7ff;
+  text-align: center;
+}
 
-    .back {
-      margin-top: 12px;
-      padding: 10px 25px;
-      border: none;
-      border-radius: 25px;
-      background: white;
-      font-size: 16px;
-      font-weight: bold;
-    }
+header {
+  background: #6c5ce7;
+  color: white;
+  padding: 25px 10px;
+  border-radius: 0 0 30px 30px;
+}
 
-    .animal-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      max-width: 500px;
-      margin: 25px auto;
-      padding: 15px;
-    }
+h1 {
+  margin: 5px;
+  font-size: 28px;
+}
 
-    .animal {
-      background: white;
-      border: none;
-      border-radius: 22px;
-      padding: 20px 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-      font-size: 20px;
-      font-weight: bold;
-    }
+header p {
+  margin: 8px;
+  font-size: 16px;
+}
 
-    .animal:active {
-      transform: scale(0.94);
-    }
+.container {
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+}
 
-    .emoji {
-      display: block;
-      font-size: 60px;
-      margin-bottom: 10px;
-    }
+.title {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
-    .sound {
-      display: block;
-      font-size: 14px;
-      margin-top: 5px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
 
-    footer {
-      margin: 20px;
-      color: #777;
-    }
+.animal-button {
+  border: none;
+  background: white;
+  border-radius: 25px;
+  padding: 20px 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-  </style>
+.animal-button:active {
+  transform: scale(0.94);
+}
+
+.animal {
+  font-size: 65px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sound {
+  font-size: 14px;
+  margin-top: 6px;
+  color: #666;
+}
+
+.listen-button {
+  margin-top: 25px;
+  background: #00b894;
+  color: white;
+  border: none;
+  padding: 15px 28px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.home-button {
+  margin-top: 20px;
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 25px;
+  padding: 18px;
+  color: #666;
+  font-size: 14px;
+}
+
+</style>
 
 </head>
-
 
 <body>
 
 <header>
 
-  <h1>🐾 Animal Learning</h1>
+<h1>🐯 Asim Tech Kids</h1>
 
-  <button class="back"
-          onclick="location.href='index.html'">
-
-    🏠 Home
-
-  </button>
+<p>Learn Animals and Their Sounds</p>
 
 </header>
 
+<div class="container">
 
-<div class="animal-grid">
+<div class="title">
 
+🐾 Tap an Animal to Hear Its Sound
 
-  <button class="animal"
-          onclick="animalSound('Dog','Woof woof')">
+</div>
 
-    <span class="emoji">🐶</span>
+<div class="grid">
 
-    Dog
 
-    <span class="sound">
-      🔊 Woof Woof
-    </span>
+<button class="animal-button"
+onclick="animalSound('Dog','Woof Woof')">
 
-  </button>
+<span class="animal">🐶</span>
 
+Dog
 
-  <button class="animal"
-          onclick="animalSound('Cat','Meow meow')">
+<div class="sound">
+🔊 Woof Woof
+</div>
 
-    <span class="emoji">🐱</span>
+</button>
 
-    Cat
 
-    <span class="sound">
-      🔊 Meow Meow
-    </span>
+<button class="animal-button"
+onclick="animalSound('Cat','Meow Meow')">
 
-  </button>
+<span class="animal">🐱</span>
 
+Cat
 
-  <button class="animal"
-          onclick="animalSound('Lion','Roar')">
+<div class="sound">
+🔊 Meow Meow
+</div>
 
-    <span class="emoji">🦁</span>
+</button>
 
-    Lion
 
-    <span class="sound">
-      🔊 Roar
-    </span>
+<button class="animal-button"
+onclick="animalSound('Lion','Roar')">
 
-  </button>
+<span class="animal">🦁</span>
 
+Lion
 
-  <button class="animal"
-          onclick="animalSound('Cow','Moo moo')">
+<div class="sound">
+🔊 Roar
+</div>
 
-    <span class="emoji">🐮</span>
+</button>
 
-    Cow
 
-    <span class="sound">
-      🔊 Moo Moo
-    </span>
+<button class="animal-button"
+onclick="animalSound('Cow','Moo Moo')">
 
-  </button>
+<span class="animal">🐮</span>
 
+Cow
 
-  <button class="animal"
-          onclick="animalSound('Elephant','Trumpet')">
+<div class="sound">
+🔊 Moo Moo
+</div>
 
-    <span class="emoji">🐘</span>
+</button>
 
-    Elephant
 
-    <span class="sound">
-      🔊 Trumpet
-    </span>
+<button class="animal-button"
+onclick="animalSound('Elephant','Trumpet')">
 
-  </button>
+<span class="animal">🐘</span>
 
+Elephant
 
-  <button class="animal"
-          onclick="animalSound('Horse','Neigh')">
+<div class="sound">
+🔊 Trumpet
+</div>
 
-    <span class="emoji">🐴</span>
+</button>
 
-    Horse
 
-    <span class="sound">
-      🔊 Neigh
-    </span>
+<button class="animal-button"
+onclick="animalSound('Horse','Neigh')">
 
-  </button>
+<span class="animal">🐴</span>
 
+Horse
 
-  <button class="animal"
-          onclick="animalSound('Tiger','Roar')">
+<div class="sound">
+🔊 Neigh
+</div>
 
-    <span class="emoji">🐯</span>
+</button>
 
-    Tiger
 
-    <span class="sound">
-      🔊 Roar
-    </span>
+<button class="animal-button"
+onclick="animalSound('Tiger','Roar')">
 
-  </button>
+<span class="animal">🐯</span>
 
+Tiger
 
-  <button class="animal"
-          onclick="animalSound('Monkey','Ooh ooh aah aah')">
+<div class="sound">
+🔊 Roar
+</div>
 
-    <span class="emoji">🐒</span>
+</button>
 
-    Monkey
 
-    <span class="sound">
-      🔊 Ooh Ooh Aah Aah
-    </span>
+<button class="animal-button"
+onclick="animalSound('Monkey','Ooh Ooh Aah Aah')">
 
-  </button>
+<span class="animal">🐒</span>
 
+Monkey
 
-  <button class="animal"
-          onclick="animalSound('Bird','Chirp chirp')">
+<div class="sound">
+🔊 Ooh Ooh Aah Aah
+</div>
 
-    <span class="emoji">🐦</span>
+</button>
 
-    Bird
 
-    <span class="sound">
-      🔊 Chirp Chirp
-    </span>
+<button class="animal-button"
+onclick="animalSound('Bird','Chirp Chirp')">
 
-  </button>
+<span class="animal">🐦</span>
 
+Bird
 
-  <button class="animal"
-          onclick="animalSound('Duck','Quack quack')">
+<div class="sound">
+🔊 Chirp Chirp
+</div>
 
-    <span class="emoji">🦆</span>
+</button>
 
-    Duck
 
-    <span class="sound">
-      🔊 Quack Quack
-    </span>
+<button class="animal-button"
+onclick="animalSound('Duck','Quack Quack')">
 
-  </button>
+<span class="animal">🦆</span>
 
+Duck
 
-  <button class="animal"
-          onclick="animalSound('Sheep','Baa baa')">
+<div class="sound">
+🔊 Quack Quack
+</div>
 
-    <span class="emoji">🐑</span>
+</button>
 
-    Sheep
 
-    <span class="sound">
-      🔊 Baa Baa
-    </span>
+<button class="animal-button"
+onclick="animalSound('Sheep','Baa Baa')">
 
-  </button>
+<span class="animal">🐑</span>
 
+Sheep
 
-  <button class="animal"
-          onclick="animalSound('Frog','Ribbit ribbit')">
+<div class="sound">
+🔊 Baa Baa
+</div>
 
-    <span class="emoji">🐸</span>
+</button>
 
-    Frog
 
-    <span class="sound">
-      🔊 Ribbit Ribbit
-    </span>
+<button class="animal-button"
+onclick="animalSound('Frog','Ribbit Ribbit')">
 
-  </button>
+<span class="animal">🐸</span>
+
+Frog
+
+<div class="sound">
+🔊 Ribbit Ribbit
+</div>
+
+</button>
 
 
 </div>
 
 
+<button class="listen-button"
+onclick="speak('Animals and their sounds')">
+
+🔊 Listen to Animals
+
+</button>
+
+
+<br>
+
+
+<button class="home-button"
+onclick="location.href='index.html'">
+
+🏠 Home
+
+</button>
+
+</div>
+
 <footer>
 
-  Powered by Asim Tech ❤️
+Powered by Asim Tech ❤️
 
 </footer>
 
@@ -288,23 +341,38 @@
 
 function animalSound(animal, sound) {
 
-  window.speechSynthesis.cancel();
+  speak(
+    animal + ". " + sound
+  );
 
-  const message =
-    new SpeechSynthesisUtterance(
-      animal + ". " + sound
-    );
+}
 
-  message.lang = "en-US";
-  message.rate = 0.7;
-  message.pitch = 1.2;
 
-  window.speechSynthesis.speak(message);
+function speak(text) {
+
+  if ("speechSynthesis" in window) {
+
+    window.speechSynthesis.cancel();
+
+    const message =
+      new SpeechSynthesisUtterance(text);
+
+    message.lang =
+      "en-US";
+
+    message.rate =
+      0.75;
+
+    message.pitch =
+      1.2;
+
+    window.speechSynthesis.speak(message);
+
+  }
 
 }
 
 </script>
-
 
 </body>
 
