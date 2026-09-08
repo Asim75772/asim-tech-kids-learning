@@ -163,7 +163,7 @@
     <!-- ANIMALS -->
 
     <button class="learn-button"
-            onclick="speak('Animals')">
+            onclick="location.href='animals.html'">
 
       <span class="icon">🐯</span>
 
@@ -229,6 +229,8 @@ function speak(text) {
 
     const message =
       new SpeechSynthesisUtterance(text);
+
+    message.lang = "en-US";
 
     message.rate = 0.8;
 
