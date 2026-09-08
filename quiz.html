@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Quiz - Asim Tech Kids</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f7ff;
+      text-align: center;
+    }
+
+    header {
+      background: #6c5ce7;
+      color: white;
+      padding: 25px 10px;
+      border-radius: 0 0 30px 30px;
+    }
+
+    h1 {
+      margin: 5px;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 8px;
+      font-size: 16px;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .question {
+      background: white;
+      padding: 25px 15px;
+      border-radius: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+      margin-bottom: 20px;
+    }
+
+    .question-number {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .question-text {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      display: grid;
+      gap: 12px;
+    }
+
+    .option {
+      border: none;
+      border-radius: 18px;
+      padding: 17px;
+      font-size: 20px;
+      font-weight: bold;
+      background: #ffffff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      cursor: pointer;
+    }
+
+    .option:active {
+      transform: scale(0.96);
+    }
+
+    .correct {
+      background: #00b894 !important;
+      color: white;
+    }
+
+    .wrong {
+      background: #ff7675 !important;
+      color: white;
+    }
+
+    .result {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 18px 0;
+      min-height: 30px;
+    }
+
+    .next-button {
+      background: #0984e3;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .home-button {
+      margin-top: 20px;
+      background: #6c5ce7;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 25px;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 25px;
+      padding: 18px;
+      color: #666;
+      font-size: 14px;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <h1>🧩 Asim Tech Kids</h1>
+
+  <p>Fun Quiz Time!</p>
+
+</header>
+
+
+<div class="container">
+
+
+  <div class="question">
+
+    <div class="question-number" id="questionNumber">
+      Question 1
+    </div>
+
+    <div class="question-text" id="questionText">
+      What comes after A?
+    </div>
+
+
+    <div class="options" id="options">
+
+    </div>
+
+
+    <div class="result" id="result"></div>
+
+
+    <button class="next-button"
+            id="nextButton"
+            onclick="nextQuestion()"
+            style="display:none;">
+
+      ➡️ Next
+
+    </button>
+
+  </div>
+
+
+  <button class="home-button"
+          onclick="location.href='index.html'">
+
+    🏠 Home
+
+  </button>
+
+
+</div>
+
+
+<footer>
+
+  Powered by Asim Tech ❤️
+
+</footer>
+
+
+
+<script>
+
+
+const questions = [
+
+  {
+    question: "What comes after A?",
+    options: ["B", "C", "D", "E"],
+    answer: "B"
+  },
+
+  {
+    question: "What is 2 + 2?",
+    options: ["3", "4", "5", "6"],
+    answer: "4"
+  },
+
+  {
+    question: "Which animal says Moo?",
+    options: ["Dog", "Cat", "Cow", "Lion"],
+    answer: "Cow"
+  },
+
+  {
+    question: "What colour is the sky?",
+    options: ["Blue", "Red", "Green", "Black"],
+    answer: "Blue"
+  },
+
+  {
+    question: "What comes after 9?",
+    options: ["8", "10", "11", "12"],
+    answer: "10"
+  },
+
+  {
+    question: "Which animal says Meow?",
+    options: ["Dog", "Cat", "Horse", "Cow"],
+    answer: "Cat"
+  },
+
+  {
+    question: "Which letter starts the word Apple?",
+    options: ["A", "B", "C", "D"],
+    answer: "A"
+  },
+
+  {
+    question: "What colour is a banana?",
+    options: ["Blue", "Yellow", "Black", "Purple"],
+    answer: "Yellow"
+  }
+
+];
+
+
+let currentQuestion = 0;
+
+let score = 0;
+
+
+function loadQuestion() {
+
+  const q = questions[currentQuestion];
+
+
+  document.getElementById("questionNumber").innerText =
+    "Question " + (currentQuestion + 1) +
+    " of " + questions.length;
+
+
+  document.getElementById("questionText").innerText =
+    q.question;
+
+
+  document.getElementById("result").innerText = "";
+
+
+  document.getElementById("nextButton").style.display =
+    "none";
+
+
+  const options =
+    document.getElementById("options");
+
+
+  options.innerHTML = "";
+
+
+  q.options.forEach(function(option) {
+
+    const button =
+      document.createElement("button");
+
+
+    button.className = "option";
+
+
+    button.innerText = option;
+
+
+    button.onclick = function() {
+
+      checkAnswer(button, option);
+
+    };
+
+
+    options.appendChild(button);
+
+  });
+
+
+  speak(q.question);
+
+}
+
+
+
+function checkAnswer(button, selected) {
+
+  const q = questions[currentQuestion];
+
+
+  const allButtons =
+    document.querySelectorAll(".option");
+
+
+  allButtons.forEach(function(btn) {
+
+    btn.disabled = true;
+
+  });
+
+
+  if (selected === q.answer) {
+
+    button.classList.add("correct");
+
+    document.getElementById("result").innerText =
+      "🎉 Correct! Great Job!";
+
+    score++;
+
+    speak("Correct! Great job!");
+
+  } else {
+
+    button.classList.add("wrong");
+
+    document.getElementById("result").innerText =
+      "❌ Try Again!";
+
+    allButtons.forEach(function(btn) {
+
+      if (btn.innerText === q.answer) {
+
+        btn.classList.add("correct");
+
+      }
+
+    });
+
+    speak("Try again!");
+
+  }
+
+
+  document.getElementById("nextButton").style.display =
+    "inline-block";
+
+}
+
+
+
+function nextQuestion() {
+
+  currentQuestion++;
+
+
+  if (currentQuestion < questions.length) {
+
+    loadQuestion();
+
+  } else {
+
+    showFinalResult();
+
+  }
+
+}
+
+
+
+function showFinalResult() {
+
+  document.querySelector(".question").innerHTML = `
+
+    <div style="font-size:55px;">
+      🏆
+    </div>
+
+    <h2>Quiz Complete!</h2>
+
+    <p style="font-size:22px;">
+      Your Score
+    </p>
+
+    <p style="font-size:35px;font-weight:bold;">
+      ${score} / ${questions.length}
+    </p>
+
+    <p style="font-size:20px;">
+      ${
+        score === questions.length
+        ? "🌟 Perfect! Amazing!"
+        : "👏 Well Done!"
+      }
+    </p>
+
+    <button class="next-button"
+            onclick="location.reload()">
+
+      🔄 Play Again
+
+    </button>
+
+  `;
+
+
+  speak(
+    "Quiz complete. Your score is " +
+    score +
+    " out of " +
+    questions.length
+  );
+
+}
+
+
+
+function speak(text) {
+
+  if ("speechSynthesis" in window) {
+
+    window.speechSynthesis.cancel();
+
+
+    const message =
+      new SpeechSynthesisUtterance(text);
+
+
+    message.lang = "en-US";
+
+    message.rate = 0.8;
+
+    message.pitch = 1.2;
+
+
+    window.speechSynthesis.speak(message);
+
+  }
+
+}
+
+
+
+loadQuestion();
+
+
+</script>
+
+
+</body>
+
+</html>
