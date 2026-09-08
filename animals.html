@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Asim Tech - Animals</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #eefbf3;
+      text-align: center;
+    }
+
+    header {
+      background: #00b894;
+      color: white;
+      padding: 20px;
+      border-radius: 0 0 25px 25px;
+    }
+
+    h1 {
+      margin: 5px;
+      font-size: 28px;
+    }
+
+    .back {
+      margin-top: 12px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      background: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .animal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 500px;
+      margin: 25px auto;
+      padding: 15px;
+    }
+
+    .animal {
+      background: white;
+      border: none;
+      border-radius: 22px;
+      padding: 20px 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .animal:active {
+      transform: scale(0.94);
+    }
+
+    .emoji {
+      display: block;
+      font-size: 60px;
+      margin-bottom: 10px;
+    }
+
+    .sound {
+      display: block;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    footer {
+      margin: 20px;
+      color: #777;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<header>
+
+  <h1>🐾 Animal Learning</h1>
+
+  <button class="back"
+          onclick="location.href='index.html'">
+
+    🏠 Home
+
+  </button>
+
+</header>
+
+
+<div class="animal-grid">
+
+
+  <button class="animal"
+          onclick="animalSound('Dog','Woof woof')">
+
+    <span class="emoji">🐶</span>
+
+    Dog
+
+    <span class="sound">
+      🔊 Woof Woof
+    </span>
+
+  </button>
+
+
+  <button class="animal"
+          onclick="animalSound('Cat','Meow meow')">
+
+    <span class="emoji">🐱</span>
+
+    Cat
+
+    <span class="sound">
+      🔊 Meow Meow
+    </span>
+
+  </button>
+
+
+  <button class="animal"
+          onclick="animalSound('Lion','Roar')">
+
+    <span class="emoji">🦁</span>
+
+    Lion
+
+    <span class="sound">
+      🔊 Roar
+    </span>
+
+  </button>
+
+
+  <button class="animal"
+          onclick="animalSound('Cow','Moo moo')">
+
+    <span class="emoji">🐮</span>
+
+    Cow
+
+    <span class="sound">
+      🔊 Moo Moo
+    </span>
+
+  </button>
+
+
+  <button class="animal"
+          onclick="animalSound('Elephant','Trumpet')">
+
+    <span class="emoji">🐘</span>
+
+    Elephant
+
+    <span class="sound">
+      🔊 Trumpet
+    </span>
+
+  </button>
+
+
+  <button class="animal"
+          onclick="animalSound('Horse','Neigh')">
+
+    <span class="emoji">🐴</span>
+
+    Horse
+
+    <span class="sound">
+      🔊 Neigh
+    </span>
+
+  </button>
+
+
+  <button class="animal"
+          onclick="animalSound('Tiger','Roar')">
+
+    <span class="emoji">🐯</span>
+
+    Tiger
+
+    <span class="sound">
+      🔊 Roar
+    </span>
+
+  </button>
+
+
+  <button class="animal"
+          onclick="animalSound('Monkey','Ooh ooh aah aah')">
+
+    <span class="emoji">🐒</span>
+
+    Monkey
+
+    <span class="sound">
+      🔊 Ooh Ooh Aah Aah
+    </span>
+
+  </button>
+
+
+  <button class="animal"
+          onclick="animalSound('Bird','Chirp chirp')">
+
+    <span class="emoji">🐦</span>
+
+    Bird
+
+    <span class="sound">
+      🔊 Chirp Chirp
+    </span>
+
+  </button>
+
+
+  <button class="animal"
+          onclick="animalSound('Duck','Quack quack')">
+
+    <span class="emoji">🦆</span>
+
+    Duck
+
+    <span class="sound">
+      🔊 Quack Quack
+    </span>
+
+  </button>
+
+
+  <button class="animal"
+          onclick="animalSound('Sheep','Baa baa')">
+
+    <span class="emoji">🐑</span>
+
+    Sheep
+
+    <span class="sound">
+      🔊 Baa Baa
+    </span>
+
+  </button>
+
+
+  <button class="animal"
+          onclick="animalSound('Frog','Ribbit ribbit')">
+
+    <span class="emoji">🐸</span>
+
+    Frog
+
+    <span class="sound">
+      🔊 Ribbit Ribbit
+    </span>
+
+  </button>
+
+
+</div>
+
+
+<footer>
+
+  Powered by Asim Tech ❤️
+
+</footer>
+
+
+<script>
+
+function animalSound(animal, sound) {
+
+  window.speechSynthesis.cancel();
+
+  const message =
+    new SpeechSynthesisUtterance(
+      animal + ". " + sound
+    );
+
+  message.lang = "en-US";
+  message.rate = 0.7;
+  message.pitch = 1.2;
+
+  window.speechSynthesis.speak(message);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
