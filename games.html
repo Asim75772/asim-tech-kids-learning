@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Asim Tech Kids - Games</title>
 
 <style>
@@ -15,36 +16,54 @@
 body{
   font-family:Arial,sans-serif;
   min-height:100vh;
-  background:linear-gradient(135deg,#6a11cb,#2575fc,#00c6ff);
-  padding:20px;
+  background:linear-gradient(135deg,#667eea,#764ba2,#00c6ff);
+  padding:15px;
   color:#222;
 }
 
+.container{
+  max-width:950px;
+  margin:auto;
+}
+
 .header{
-  text-align:center;
+  background:linear-gradient(135deg,#ff512f,#dd2476);
   color:white;
-  padding:20px 10px;
+  text-align:center;
+  padding:25px 15px;
+  border-radius:28px;
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+}
+
+.header .star{
+  font-size:48px;
 }
 
 .header h1{
   font-size:32px;
-  margin-bottom:8px;
+  margin:8px 0;
 }
 
 .header p{
   font-size:17px;
 }
 
-.container{
-  max-width:850px;
-  margin:auto;
+.total-score{
+  background:white;
+  margin-top:18px;
+  padding:15px;
+  border-radius:22px;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
 
 .game-menu{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
   gap:18px;
-  margin-top:15px;
+  margin-top:18px;
 }
 
 .game-card{
@@ -85,7 +104,7 @@ body{
   background:white;
   border-radius:28px;
   padding:25px 18px;
-  margin-top:25px;
+  margin-top:22px;
   box-shadow:0 12px 30px rgba(0,0,0,.2);
   text-align:center;
 }
@@ -93,6 +112,7 @@ body{
 .game-area h2{
   color:#6a11cb;
   margin-bottom:15px;
+  font-size:27px;
 }
 
 .score{
@@ -101,8 +121,14 @@ body{
   margin:12px;
 }
 
-.question{
+.stars{
   font-size:28px;
+  margin:10px;
+  letter-spacing:4px;
+}
+
+.question{
+  font-size:27px;
   font-weight:bold;
   margin:20px 0;
 }
@@ -130,21 +156,46 @@ body{
 }
 
 .message{
-  min-height:35px;
+  min-height:38px;
   margin:15px;
-  font-size:22px;
+  font-size:21px;
   font-weight:bold;
 }
 
-.back{
+.back,
+.next{
   border:none;
-  background:#6a11cb;
   color:white;
   padding:12px 22px;
   border-radius:20px;
   font-size:17px;
   cursor:pointer;
-  margin-top:15px;
+  margin:8px 4px;
+}
+
+.back{
+  background:#6a11cb;
+}
+
+.next{
+  background:#ff7b00;
+}
+
+.colour-options{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  max-width:500px;
+  margin:auto;
+}
+
+.colour-btn{
+  height:70px;
+  border:none;
+  border-radius:18px;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 .memory-grid{
@@ -165,21 +216,40 @@ body{
   cursor:pointer;
 }
 
-.colour-options{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  max-width:500px;
-  margin:auto;
+.complete{
+  display:none;
+  background:linear-gradient(135deg,#fff7ad,#ffd166,#ff9a9e);
+  border-radius:28px;
+  padding:30px 15px;
+  margin-top:22px;
+  text-align:center;
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
 }
 
-.colour-btn{
-  height:70px;
-  border:none;
-  border-radius:18px;
+.complete .big{
+  font-size:65px;
+}
+
+.complete h2{
+  font-size:30px;
+  color:#6a11cb;
+  margin:10px 0;
+}
+
+.complete p{
   font-size:20px;
-  font-weight:bold;
+  margin:8px;
+}
+
+.play-again{
+  border:none;
+  background:#6a11cb;
+  color:white;
+  padding:14px 25px;
+  border-radius:22px;
+  font-size:18px;
   cursor:pointer;
+  margin-top:12px;
 }
 
 .footer{
@@ -190,6 +260,7 @@ body{
 }
 
 @media(max-width:500px){
+
   .header h1{
     font-size:27px;
   }
@@ -216,11 +287,17 @@ body{
 <div class="container">
 
   <div class="header">
-    <h1>🎮 Asim Tech Kids Games</h1>
-    <p>Learn • Play • Win ⭐</p>
+    <div class="star">🌟</div>
+    <h1>Asim Tech Kids Games</h1>
+    <p>Learn • Play • Collect Stars ⭐</p>
   </div>
 
-  <!-- GAME MENU -->
+  <div class="total-score">
+    🏆 Total Stars: <span id="totalStars">0</span> ⭐
+  </div>
+
+  <!-- MENU -->
+
   <div id="menu" class="game-menu">
 
     <button class="game-card number-card" onclick="startNumberGame()">
@@ -243,35 +320,43 @@ body{
 
   </div>
 
+
   <!-- NUMBER GAME -->
+
   <div id="numberGame" class="game-area">
 
     <h2>🔢 Number Game</h2>
 
     <div class="score">
-      ⭐ Score: <span id="numberScore">0</span>
+      Score: <span id="numberScore">0</span> / 5
     </div>
 
-    <div class="question" id="numberQuestion">
-      Which number is this?
-    </div>
+    <div class="stars" id="numberStars">☆☆☆☆☆</div>
+
+    <div class="question" id="numberQuestion"></div>
 
     <div class="options" id="numberOptions"></div>
 
     <div class="message" id="numberMessage"></div>
 
-    <button class="back" onclick="showMenu()">🏠 Games Menu</button>
+    <button class="back" onclick="showMenu()">
+      🏠 Games Menu
+    </button>
 
   </div>
 
+
   <!-- COLOUR GAME -->
+
   <div id="colourGame" class="game-area">
 
     <h2>🌈 Colour Game</h2>
 
     <div class="score">
-      ⭐ Score: <span id="colourScore">0</span>
+      Score: <span id="colourScore">0</span> / 5
     </div>
+
+    <div class="stars" id="colourStars">☆☆☆☆☆</div>
 
     <div class="question">
       Find: <span id="colourQuestion"></span>
@@ -281,18 +366,24 @@ body{
 
     <div class="message" id="colourMessage"></div>
 
-    <button class="back" onclick="showMenu()">🏠 Games Menu</button>
+    <button class="back" onclick="showMenu()">
+      🏠 Games Menu
+    </button>
 
   </div>
 
+
   <!-- MEMORY GAME -->
+
   <div id="memoryGame" class="game-area">
 
     <h2>🧠 Memory Match</h2>
 
     <div class="score">
-      ⭐ Score: <span id="memoryScore">0</span>
+      Matches: <span id="memoryScore">0</span> / 4
     </div>
+
+    <div class="stars" id="memoryStars">☆☆☆☆</div>
 
     <p>Find the matching animals!</p>
 
@@ -300,15 +391,42 @@ body{
 
     <div class="message" id="memoryMessage"></div>
 
-    <button class="back" onclick="showMenu()">🏠 Games Menu</button>
+    <button class="back" onclick="showMenu()">
+      🏠 Games Menu
+    </button>
 
   </div>
+
+
+  <!-- COMPLETE -->
+
+  <div id="complete" class="complete">
+
+    <div class="big">🏆🎉⭐</div>
+
+    <h2>Amazing Job!</h2>
+
+    <p id="completeText">
+      You completed the game!
+    </p>
+
+    <p>
+      🌟 Keep Learning! 🌟
+    </p>
+
+    <button class="play-again" onclick="showMenu()">
+      🎮 Play Another Game
+    </button>
+
+  </div>
+
 
   <div class="footer">
     ❤️ Powered by Asim Tech
   </div>
 
 </div>
+
 
 <script>
 
@@ -322,15 +440,51 @@ function speak(text){
 
     speechSynthesis.cancel();
 
-    const speech = new SpeechSynthesisUtterance(text);
+    const speech =
+      new SpeechSynthesisUtterance(text);
 
-    speech.lang = "en-US";
-    speech.rate = 0.75;
-    speech.pitch = 1.2;
+    speech.lang="en-US";
+    speech.rate=0.75;
+    speech.pitch=1.2;
 
     speechSynthesis.speak(speech);
   }
 }
+
+
+/* =========================
+   STAR SYSTEM
+========================= */
+
+let totalStars=0;
+
+function addStar(){
+
+  totalStars++;
+
+  document.getElementById("totalStars").textContent=
+    totalStars;
+}
+
+
+function updateStars(element,total){
+
+  let result="";
+
+  for(let i=1;i<=total;i++){
+
+    if(i<=totalStarsForGame){
+      result+="⭐";
+    }else{
+      result+="☆";
+    }
+
+  }
+
+  element.textContent=result;
+}
+
+let totalStarsForGame=0;
 
 
 /* =========================
@@ -342,7 +496,9 @@ function hideGames(){
   document.getElementById("numberGame").style.display="none";
   document.getElementById("colourGame").style.display="none";
   document.getElementById("memoryGame").style.display="none";
+  document.getElementById("complete").style.display="none";
 }
+
 
 function showMenu(){
 
@@ -354,23 +510,42 @@ function showMenu(){
 }
 
 
+function showComplete(score,total){
+
+  hideGames();
+
+  document.getElementById("complete").style.display="block";
+
+  document.getElementById("completeText").textContent=
+    "You scored " + score + " out of " + total + "!";
+
+  speak("Amazing job! You completed the game!");
+}
+
+
 /* =========================
    NUMBER GAME
 ========================= */
 
 let numberScore=0;
+let numberQuestionCount=0;
 let correctNumber=0;
+
 
 function startNumberGame(){
 
   document.getElementById("menu").style.display="none";
+
   hideGames();
 
   document.getElementById("numberGame").style.display="block";
 
   numberScore=0;
+  numberQuestionCount=0;
+  totalStarsForGame=0;
 
-  document.getElementById("numberScore").textContent=numberScore;
+  document.getElementById("numberScore").textContent=0;
+  document.getElementById("numberStars").textContent="☆☆☆☆☆";
 
   newNumberQuestion();
 }
@@ -378,18 +553,27 @@ function startNumberGame(){
 
 function newNumberQuestion(){
 
-  correctNumber=Math.floor(Math.random()*10)+1;
+  if(numberQuestionCount>=5){
+
+    showComplete(numberScore,5);
+
+    return;
+  }
+
+  numberQuestionCount++;
+
+  correctNumber=
+    Math.floor(Math.random()*10)+1;
 
   document.getElementById("numberQuestion").textContent=
     "Find number " + correctNumber;
 
-  const options=[];
-
-  options.push(correctNumber);
+  const options=[correctNumber];
 
   while(options.length<4){
 
-    const n=Math.floor(Math.random()*10)+1;
+    const n=
+      Math.floor(Math.random()*10)+1;
 
     if(!options.includes(n)){
       options.push(n);
@@ -398,20 +582,20 @@ function newNumberQuestion(){
 
   options.sort(()=>Math.random()-0.5);
 
-  const area=document.getElementById("numberOptions");
+  const area=
+    document.getElementById("numberOptions");
 
   area.innerHTML="";
 
   options.forEach(n=>{
 
-    const button=document.createElement("button");
+    const button=
+      document.createElement("button");
 
     button.className="option";
-
     button.textContent=n;
 
     button.onclick=function(){
-
       checkNumber(n);
     };
 
@@ -430,13 +614,20 @@ function checkNumber(n){
   if(n===correctNumber){
 
     numberScore++;
+    totalStarsForGame++;
 
-    document.getElementById("numberScore").textContent=numberScore;
+    addStar();
+
+    document.getElementById("numberScore").textContent=
+      numberScore;
+
+    document.getElementById("numberStars").textContent=
+      "⭐".repeat(numberScore)+"☆".repeat(5-numberScore);
 
     document.getElementById("numberMessage").textContent=
-      "🎉 Correct! Great job!";
+      "🎉 Correct! You earned a star!";
 
-    speak("Correct! Great job!");
+    speak("Correct! You earned a star!");
 
     setTimeout(newNumberQuestion,900);
 
@@ -455,9 +646,11 @@ function checkNumber(n){
 ========================= */
 
 let colourScore=0;
+let colourQuestionCount=0;
 let correctColour="";
 
 const colours=[
+
   {name:"Red",code:"#ff4d4d"},
   {name:"Blue",code:"#4285f4"},
   {name:"Green",code:"#34a853"},
@@ -466,25 +659,39 @@ const colours=[
   {name:"Purple",code:"#9b59b6"},
   {name:"Pink",code:"#ff69b4"},
   {name:"Brown",code:"#8b5a2b"}
+
 ];
 
 
 function startColourGame(){
 
   document.getElementById("menu").style.display="none";
+
   hideGames();
 
   document.getElementById("colourGame").style.display="block";
 
   colourScore=0;
+  colourQuestionCount=0;
+  totalStarsForGame=0;
 
-  document.getElementById("colourScore").textContent=colourScore;
+  document.getElementById("colourScore").textContent=0;
+  document.getElementById("colourStars").textContent="☆☆☆☆☆";
 
   newColourQuestion();
 }
 
 
 function newColourQuestion(){
+
+  if(colourQuestionCount>=5){
+
+    showComplete(colourScore,5);
+
+    return;
+  }
+
+  colourQuestionCount++;
 
   const selected=
     colours[Math.floor(Math.random()*colours.length)];
@@ -508,22 +715,21 @@ function newColourQuestion(){
 
   options.sort(()=>Math.random()-0.5);
 
-  const area=document.getElementById("colourOptions");
+  const area=
+    document.getElementById("colourOptions");
 
   area.innerHTML="";
 
   options.forEach(c=>{
 
-    const button=document.createElement("button");
+    const button=
+      document.createElement("button");
 
     button.className="colour-btn";
-
     button.style.background=c.code;
-
     button.textContent=c.name;
 
     button.onclick=function(){
-
       checkColour(c.name);
     };
 
@@ -542,14 +748,20 @@ function checkColour(name){
   if(name===correctColour){
 
     colourScore++;
+    totalStarsForGame++;
+
+    addStar();
 
     document.getElementById("colourScore").textContent=
       colourScore;
 
-    document.getElementById("colourMessage").textContent=
-      "🌈 Correct! Amazing!";
+    document.getElementById("colourStars").textContent=
+      "⭐".repeat(colourScore)+"☆".repeat(5-colourScore);
 
-    speak("Correct! Amazing!");
+    document.getElementById("colourMessage").textContent=
+      "🌈 Correct! Star earned!";
+
+    speak("Correct! Star earned!");
 
     setTimeout(newColourQuestion,900);
 
@@ -573,6 +785,7 @@ let secondCard=null;
 let lockBoard=false;
 let memoryScore=0;
 
+
 const animals=[
   "🐶","🐱","🦁","🐵",
   "🐶","🐱","🦁","🐵"
@@ -582,13 +795,16 @@ const animals=[
 function startMemoryGame(){
 
   document.getElementById("menu").style.display="none";
+
   hideGames();
 
   document.getElementById("memoryGame").style.display="block";
 
   memoryScore=0;
+  totalStarsForGame=0;
 
-  document.getElementById("memoryScore").textContent=memoryScore;
+  document.getElementById("memoryScore").textContent=0;
+  document.getElementById("memoryStars").textContent="☆☆☆☆";
 
   createMemoryGame();
 
@@ -606,22 +822,21 @@ function createMemoryGame(){
   secondCard=null;
   lockBoard=false;
 
-  const grid=document.getElementById("memoryGrid");
+  const grid=
+    document.getElementById("memoryGrid");
 
   grid.innerHTML="";
 
-  memoryCards.forEach((animal,index)=>{
+  memoryCards.forEach(animal=>{
 
-    const button=document.createElement("button");
+    const button=
+      document.createElement("button");
 
     button.className="memory";
-
     button.textContent="❓";
-
     button.dataset.animal=animal;
 
     button.onclick=function(){
-
       flipCard(button);
     };
 
@@ -644,6 +859,9 @@ function flipCard(card){
   if(!firstCard){
 
     firstCard=card;
+
+    speak("Choose another card");
+
     return;
   }
 
@@ -657,17 +875,27 @@ function checkMemory(){
 
   lockBoard=true;
 
-  if(firstCard.dataset.animal===secondCard.dataset.animal){
+  if(firstCard.dataset.animal===
+     secondCard.dataset.animal){
 
     memoryScore++;
+    totalStarsForGame++;
+
+    addStar();
 
     document.getElementById("memoryScore").textContent=
       memoryScore;
 
-    document.getElementById("memoryMessage").textContent=
-      "🎉 Match! Well done!";
+    document.getElementById("memoryStars").textContent=
+      "⭐".repeat(memoryScore)+"☆".repeat(4-memoryScore);
 
-    speak("Match! Well done!");
+    document.getElementById("memoryMessage").textContent=
+      "🎉 Match! Star earned!";
+
+    speak("Match! Star earned!");
+
+    firstCard.disabled=true;
+    secondCard.disabled=true;
 
     firstCard=null;
     secondCard=null;
@@ -675,24 +903,22 @@ function checkMemory(){
 
     if(memoryScore===4){
 
-      setTimeout(()=>{
+      setTimeout(function(){
 
-        document.getElementById("memoryMessage").textContent=
-          "🏆 Amazing! You completed the game!";
+        showComplete(4,4);
 
-        speak("Amazing! You completed the game!");
+      },1000);
 
-      },500);
     }
 
   }else{
 
     document.getElementById("memoryMessage").textContent=
-      "😊 Try another pair!";
+      "😊 Not a match. Try again!";
 
-    speak("Try another pair!");
+    speak("Not a match. Try again!");
 
-    setTimeout(()=>{
+    setTimeout(function(){
 
       firstCard.textContent="❓";
       secondCard.textContent="❓";
@@ -703,6 +929,7 @@ function checkMemory(){
       lockBoard=false;
 
     },900);
+
   }
 }
 
