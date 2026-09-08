@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Asim Tech - Numbers</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f7ff;
+      text-align: center;
+    }
+
+    header {
+      background: #0984e3;
+      color: white;
+      padding: 20px;
+      border-radius: 0 0 25px 25px;
+    }
+
+    h1 {
+      margin: 5px;
+      font-size: 28px;
+    }
+
+    .back {
+      margin-top: 12px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      background: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .card {
+      background: white;
+      max-width: 400px;
+      margin: 25px auto;
+      padding: 25px;
+      border-radius: 25px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+    }
+
+    .big-number {
+      font-size: 85px;
+      font-weight: bold;
+      color: #0984e3;
+    }
+
+    .number-word {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 10px;
+    }
+
+    .emoji {
+      font-size: 55px;
+      margin: 15px;
+    }
+
+    .listen {
+      background: #00b894;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .numbers {
+      max-width: 550px;
+      margin: auto;
+      padding: 15px;
+    }
+
+    .number-button {
+      width: 55px;
+      height: 55px;
+      margin: 5px;
+      border: none;
+      border-radius: 15px;
+      background: white;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    }
+
+    .number-button:active {
+      transform: scale(0.9);
+    }
+
+    footer {
+      margin: 25px;
+      color: #777;
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<header>
+
+  <h1>🔢 Numbers 1–100</h1>
+
+  <button class="back"
+          onclick="location.href='index.html'">
+
+    🏠 Home
+
+  </button>
+
+</header>
+
+
+<div class="card">
+
+  <div id="bigNumber"
+       class="big-number">
+
+    1
+
+  </div>
+
+  <div id="numberWord"
+       class="number-word">
+
+    One
+
+  </div>
+
+  <div class="emoji">
+
+    🔢
+
+  </div>
+
+  <button class="listen"
+          onclick="listen()">
+
+    🔊 Listen
+
+  </button>
+
+</div>
+
+
+<div id="numbers"
+     class="numbers">
+</div>
+
+
+<footer>
+
+  Powered by Asim Tech ❤️
+
+</footer>
+
+
+<script>
+
+const words = [
+
+  "Zero",
+  "One",
+  "Two",
+  "Three",
+  "Four",
+  "Five",
+  "Six",
+  "Seven",
+  "Eight",
+  "Nine",
+  "Ten",
+  "Eleven",
+  "Twelve",
+  "Thirteen",
+  "Fourteen",
+  "Fifteen",
+  "Sixteen",
+  "Seventeen",
+  "Eighteen",
+  "Nineteen",
+  "Twenty",
+  "Twenty-one",
+  "Twenty-two",
+  "Twenty-three",
+  "Twenty-four",
+  "Twenty-five",
+  "Twenty-six",
+  "Twenty-seven",
+  "Twenty-eight",
+  "Twenty-nine",
+  "Thirty",
+  "Thirty-one",
+  "Thirty-two",
+  "Thirty-three",
+  "Thirty-four",
+  "Thirty-five",
+  "Thirty-six",
+  "Thirty-seven",
+  "Thirty-eight",
+  "Thirty-nine",
+  "Forty",
+  "Forty-one",
+  "Forty-two",
+  "Forty-three",
+  "Forty-four",
+  "Forty-five",
+  "Forty-six",
+  "Forty-seven",
+  "Forty-eight",
+  "Forty-nine",
+  "Fifty",
+  "Fifty-one",
+  "Fifty-two",
+  "Fifty-three",
+  "Fifty-four",
+  "Fifty-five",
+  "Fifty-six",
+  "Fifty-seven",
+  "Fifty-eight",
+  "Fifty-nine",
+  "Sixty",
+  "Sixty-one",
+  "Sixty-two",
+  "Sixty-three",
+  "Sixty-four",
+  "Sixty-five",
+  "Sixty-six",
+  "Sixty-seven",
+  "Sixty-eight",
+  "Sixty-nine",
+  "Seventy",
+  "Seventy-one",
+  "Seventy-two",
+  "Seventy-three",
+  "Seventy-four",
+  "Seventy-five",
+  "Seventy-six",
+  "Seventy-seven",
+  "Seventy-eight",
+  "Seventy-nine",
+  "Eighty",
+  "Eighty-one",
+  "Eighty-two",
+  "Eighty-three",
+  "Eighty-four",
+  "Eighty-five",
+  "Eighty-six",
+  "Eighty-seven",
+  "Eighty-eight",
+  "Eighty-nine",
+  "Ninety",
+  "Ninety-one",
+  "Ninety-two",
+  "Ninety-three",
+  "Ninety-four",
+  "Ninety-five",
+  "Ninety-six",
+  "Ninety-seven",
+  "Ninety-eight",
+  "Ninety-nine",
+  "One hundred"
+
+];
+
+
+let currentNumber = 1;
+
+
+function showNumber(number) {
+
+  currentNumber = number;
+
+  document.getElementById("bigNumber")
+          .innerText = number;
+
+  document.getElementById("numberWord")
+          .innerText = words[number];
+
+  speak(words[number]);
+
+}
+
+
+function listen() {
+
+  speak(words[currentNumber]);
+
+}
+
+
+function speak(text) {
+
+  window.speechSynthesis.cancel();
+
+  const voice =
+    new SpeechSynthesisUtterance(text);
+
+  voice.lang = "en-US";
+  voice.rate = 0.75;
+  voice.pitch = 1.2;
+
+  window.speechSynthesis.speak(voice);
+
+}
+
+
+// Create 1–100 buttons
+
+const numbers =
+  document.getElementById("numbers");
+
+
+for (let i = 1; i <= 100; i++) {
+
+  const button =
+    document.createElement("button");
+
+  button.className =
+    "number-button";
+
+  button.innerText =
+    i;
+
+  button.onclick =
+    function() {
+
+      showNumber(i);
+
+    };
+
+  numbers.appendChild(button);
+
+}
+
+</script>
+
+</body>
+
+</html>
