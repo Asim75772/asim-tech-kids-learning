@@ -8,7 +8,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Asim Tech Kids Learning</title>
+<title>Asim Tech Kids</title>
 
 <style>
 
@@ -19,90 +19,201 @@ content="width=device-width, initial-scale=1.0">
 
 body {
   margin: 0;
-  background: #f5f7ff;
+  background: linear-gradient(180deg, #fdfbff, #eef3ff);
   text-align: center;
+  color: #333;
 }
 
+/* TOP HEADER */
+
 header {
-  background: #6c5ce7;
+  background: linear-gradient(135deg, #6c5ce7, #a55eea);
   color: white;
-  padding: 28px 10px;
-  border-radius: 0 0 30px 30px;
+  padding: 32px 15px 38px;
+  border-radius: 0 0 35px 35px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.logo {
+  font-size: 48px;
+  margin-bottom: 5px;
 }
 
 h1 {
   margin: 5px;
-  font-size: 29px;
+  font-size: 30px;
 }
 
 header p {
-  margin: 8px;
-  font-size: 16px;
+  margin: 10px 0 0;
+  font-size: 17px;
 }
 
+/* MAIN */
+
 .container {
-  padding: 20px;
-  max-width: 650px;
+  padding: 22px 16px;
+  max-width: 700px;
   margin: auto;
 }
 
-.welcome {
+/* WELCOME */
+
+.welcome-card {
+  background: white;
+  border-radius: 28px;
+  padding: 20px;
+  margin-bottom: 22px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+}
+
+.welcome-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.welcome-text {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* SECTION TITLE */
+
+.section-title {
   font-size: 22px;
   font-weight: bold;
-  margin: 10px 0 22px;
+  margin: 20px 0 15px;
 }
+
+/* GRID */
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 15px;
 }
+
+/* CARDS */
 
 .learn-button {
   border: none;
-  border-radius: 22px;
-  padding: 22px 8px;
-  font-size: 18px;
-  font-weight: bold;
+  border-radius: 25px;
+  padding: 20px 8px;
+  min-height: 145px;
   background: white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.10);
   cursor: pointer;
-  min-height: 125px;
+  transition: 0.2s;
 }
 
 .learn-button:active {
-  transform: scale(0.95);
+  transform: scale(0.94);
 }
 
 .icon {
-  font-size: 42px;
+  font-size: 48px;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 }
 
 .bangla-icon {
-  font-size: 42px;
+  font-size: 48px;
+  font-weight: bold;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
+  color: #6c5ce7;
+}
+
+.card-title {
+  font-size: 18px;
   font-weight: bold;
 }
+
+.card-text {
+  font-size: 13px;
+  color: #777;
+  margin-top: 5px;
+}
+
+/* DIFFERENT CARD BACKGROUNDS */
+
+.english {
+  background: #fff8e7;
+}
+
+.numbers {
+  background: #eef8ff;
+}
+
+.bangla {
+  background: #fff0f6;
+}
+
+.animals {
+  background: #effff3;
+}
+
+.colours {
+  background: #fff4e8;
+}
+
+.rhymes {
+  background: #f3edff;
+}
+
+.quiz {
+  background: #fff0f0;
+}
+
+/* WELCOME SOUND */
 
 .sound-button {
   margin-top: 25px;
   background: #00b894;
   color: white;
   border: none;
-  padding: 16px 30px;
+  padding: 16px 28px;
   border-radius: 30px;
   font-size: 18px;
   font-weight: bold;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.12);
 }
 
+.sound-button:active {
+  transform: scale(0.95);
+}
+
+/* FOOTER */
+
 footer {
-  margin-top: 30px;
-  padding: 18px;
+  margin-top: 25px;
+  padding: 22px 10px;
   color: #666;
   font-size: 14px;
+}
+
+.heart {
+  color: #e84393;
+}
+
+/* MOBILE */
+
+@media (max-width: 380px) {
+
+  .grid {
+    gap: 10px;
+  }
+
+  .learn-button {
+    min-height: 135px;
+  }
+
+  .icon,
+  .bangla-icon {
+    font-size: 42px;
+  }
+
 }
 
 </style>
@@ -112,102 +223,205 @@ footer {
 <body>
 
 
+<!-- HEADER -->
+
 <header>
 
-<h1>🌟 Asim Tech Kids</h1>
+<div class="logo">
+🌟
+</div>
 
-<p>Fun Learning for Kids</p>
+<h1>
+Asim Tech Kids
+</h1>
+
+<p>
+Fun Learning • Play • Discover
+</p>
 
 </header>
 
 
+<!-- MAIN -->
+
 <div class="container">
 
 
-<div class="welcome">
+<!-- WELCOME CARD -->
+
+<div class="welcome-card">
+
+<div class="welcome-title">
 
 👋 Welcome Little Learner!
 
 </div>
 
+<div class="welcome-text">
+
+Let's learn something new today! 🚀
+
+</div>
+
+</div>
+
+
+<div class="section-title">
+
+📚 What would you like to learn?
+
+</div>
+
+
+<!-- LEARNING GRID -->
 
 <div class="grid">
 
 
 <!-- ENGLISH -->
 
-<button class="learn-button"
+<button class="learn-button english"
 onclick="openPage('alphabet.html')">
 
-<span class="icon">🔤</span>
+<span class="icon">
+🔤
+</span>
 
+<div class="card-title">
 English
+</div>
+
+<div class="card-text">
+Alphabet A - Z
+</div>
 
 </button>
 
 
 <!-- NUMBERS -->
 
-<button class="learn-button"
+<button class="learn-button numbers"
 onclick="openPage('numbers.html')">
 
-<span class="icon">🔢</span>
+<span class="icon">
+🔢
+</span>
 
+<div class="card-title">
 Numbers
+</div>
+
+<div class="card-text">
+1 - 100
+</div>
 
 </button>
 
 
 <!-- BANGLA -->
 
-<button class="learn-button"
+<button class="learn-button bangla"
 onclick="openPage('bangla.html')">
 
-<span class="bangla-icon">অ</span>
+<span class="bangla-icon">
+অ
+</span>
 
+<div class="card-title">
 বাংলা
+</div>
+
+<div class="card-text">
+বর্ণমালা
+</div>
 
 </button>
 
 
 <!-- ANIMALS -->
 
-<button class="learn-button"
+<button class="learn-button animals"
 onclick="openPage('animals.html')">
 
-<span class="icon">🐯</span>
+<span class="icon">
+🐯
+</span>
 
+<div class="card-title">
 Animals
+</div>
+
+<div class="card-text">
+Learn Animal Sounds
+</div>
 
 </button>
 
 
 <!-- COLOURS -->
 
-<button class="learn-button"
+<button class="learn-button colours"
 onclick="openPage('colours.html')">
 
-<span class="icon">🎨</span>
+<span class="icon">
+🎨
+</span>
 
+<div class="card-title">
 Colours
+</div>
+
+<div class="card-text">
+Learn Colours
+</div>
+
+</button>
+
+
+<!-- RHYMES -->
+
+<button class="learn-button rhymes"
+onclick="openPage('rhymes.html')">
+
+<span class="icon">
+🎵
+</span>
+
+<div class="card-title">
+Rhymes
+</div>
+
+<div class="card-text">
+Sing & Learn
+</div>
 
 </button>
 
 
 <!-- QUIZ -->
 
-<button class="learn-button"
+<button class="learn-button quiz"
 onclick="openPage('quiz.html')">
 
-<span class="icon">🧩</span>
+<span class="icon">
+🧩
+</span>
 
+<div class="card-title">
 Quiz
+</div>
+
+<div class="card-text">
+Test Your Brain
+</div>
 
 </button>
 
 
 </div>
 
+
+<!-- WELCOME SOUND -->
 
 <button class="sound-button"
 onclick="welcomeSound()">
@@ -220,9 +434,12 @@ onclick="welcomeSound()">
 </div>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-Powered by Asim Tech ❤️
+Powered by Asim Tech
+<span class="heart">❤️</span>
 
 </footer>
 
@@ -239,12 +456,12 @@ function openPage(page) {
 }
 
 
-/* WELCOME SOUND */
+/* WELCOME VOICE */
 
 function welcomeSound() {
 
   speak(
-    "Welcome to Asim Tech Kids Learning"
+    "Welcome to Asim Tech Kids Learning. Let's learn and have fun!"
   );
 
 }
@@ -261,14 +478,11 @@ function speak(text) {
     const message =
       new SpeechSynthesisUtterance(text);
 
-    message.lang =
-      "en-US";
+    message.lang = "en-US";
 
-    message.rate =
-      0.8;
+    message.rate = 0.8;
 
-    message.pitch =
-      1.2;
+    message.pitch = 1.2;
 
     window.speechSynthesis.speak(message);
 
@@ -277,7 +491,6 @@ function speak(text) {
 }
 
 </script>
-
 
 </body>
 
