@@ -1,505 +1,387 @@
+
+</html>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Asim Tech Kids</title>
 
 <style>
-
-* {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-body {
-  margin: 0;
-  color: #25233a;
-  background:
-    radial-gradient(circle at 10% 10%, #ffe3f1 0, transparent 25%),
-    radial-gradient(circle at 90% 20%, #dff7ff 0, transparent 25%),
-    radial-gradient(circle at 50% 100%, #fff0c9 0, transparent 30%),
-    #f7f7ff;
-  text-align: center;
+body{
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  background:linear-gradient(135deg,#667eea,#764ba2,#00c6ff);
+  padding:15px;
+  color:#222;
+}
+
+.container{
+  max-width:950px;
+  margin:auto;
 }
 
 /* HEADER */
 
-header {
-  position: relative;
-  overflow: hidden;
-  color: white;
-  padding: 32px 18px 42px;
-  background: linear-gradient(
-    135deg,
-    #5f27cd,
-    #7c4dff,
-    #00b894
-  );
-  border-radius: 0 0 42px 42px;
-  box-shadow: 0 12px 30px rgba(82, 55, 160, 0.25);
+.header{
+  background:linear-gradient(135deg,#ff512f,#dd2476);
+  color:white;
+  text-align:center;
+  padding:28px 15px;
+  border-radius:28px;
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
 }
 
-header:before {
-  content: "";
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.12);
-  top: -80px;
-  left: -50px;
+.header .star{
+  font-size:45px;
 }
 
-header:after {
-  content: "";
-  position: absolute;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.10);
-  right: -40px;
-  bottom: -50px;
+.header h1{
+  font-size:34px;
+  margin:8px 0;
 }
 
-.logo {
-  position: relative;
-  font-size: 50px;
-  z-index: 1;
-}
-
-h1 {
-  position: relative;
-  z-index: 1;
-  margin: 6px 0;
-  font-size: 31px;
-}
-
-header p {
-  position: relative;
-  z-index: 1;
-  margin: 8px 0 0;
-  font-size: 16px;
-  opacity: 0.95;
-}
-
-/* MAIN */
-
-.container {
-  max-width: 720px;
-  margin: auto;
-  padding: 22px 16px 30px;
+.header p{
+  font-size:17px;
 }
 
 /* WELCOME */
 
-.welcome-card {
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
-  padding: 21px 18px;
-  margin-top: -4px;
-  box-shadow: 0 10px 30px rgba(65,50,120,0.12);
-  border: 1px solid rgba(255,255,255,0.9);
+.welcome{
+  background:white;
+  margin-top:20px;
+  padding:25px 20px;
+  border-radius:28px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
 
-.welcome-title {
-  font-size: 24px;
-  font-weight: 800;
+.welcome h2{
+  color:#6a11cb;
+  font-size:28px;
+  margin-bottom:8px;
 }
 
-.welcome-text {
-  margin-top: 7px;
-  color: #74718a;
-  font-size: 15px;
+.welcome p{
+  font-size:17px;
+  margin-bottom:18px;
 }
 
-/* SECTION */
-
-.section-title {
-  margin: 25px 0 15px;
-  font-size: 21px;
-  font-weight: 800;
-}
-
-/* GRID */
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+.welcome button{
+  border:none;
+  padding:13px 22px;
+  border-radius:25px;
+  background:linear-gradient(135deg,#6a11cb,#2575fc);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
 }
 
 /* CARDS */
 
-.learn-button {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.9);
-  border-radius: 27px;
-  min-height: 155px;
-  padding: 20px 8px;
-  cursor: pointer;
-  box-shadow: 0 9px 22px rgba(50,45,90,0.12);
-  transition: transform 0.18s ease,
-              box-shadow 0.18s ease;
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+  margin-top:22px;
 }
 
-.learn-button:before {
-  content: "";
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.35);
-  top: -30px;
-  right: -25px;
+.card{
+  text-decoration:none;
+  color:#222;
+  padding:25px 15px;
+  min-height:175px;
+  border-radius:26px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
-.learn-button:active {
-  transform: scale(0.94);
+.card:hover{
+  transform:translateY(-6px) scale(1.02);
 }
 
-.icon {
-  position: relative;
-  display: block;
-  font-size: 50px;
-  margin-bottom: 9px;
+.icon{
+  font-size:55px;
+  margin-bottom:10px;
 }
 
-.bangla-icon {
-  position: relative;
-  display: block;
-  font-size: 52px;
-  font-weight: 900;
-  color: #6c5ce7;
-  margin-bottom: 7px;
+.card h3{
+  font-size:22px;
+  margin-bottom:7px;
 }
 
-.card-title {
-  position: relative;
-  font-size: 19px;
-  font-weight: 800;
+.card p{
+  font-size:14px;
 }
 
-.card-text {
-  position: relative;
-  margin-top: 5px;
-  font-size: 12px;
-  color: #6d6a7d;
+/* CARD COLOURS */
+
+.english{
+  background:linear-gradient(135deg,#ffecd2,#fcb69f);
 }
 
-/* COLOURS */
-
-.english {
-  background: linear-gradient(145deg,#fff3c4,#fffdf2);
+.numbers{
+  background:linear-gradient(135deg,#fff1a8,#ffd166);
 }
 
-.numbers {
-  background: linear-gradient(145deg,#dff4ff,#f8fdff);
+.bangla{
+  background:linear-gradient(135deg,#d4fc79,#96e6a1);
 }
 
-.bangla {
-  background: linear-gradient(145deg,#ffe2ef,#fff7fb);
+.animals{
+  background:linear-gradient(135deg,#a1c4fd,#c2e9fb);
 }
 
-.animals {
-  background: linear-gradient(145deg,#dcffe9,#f8fffb);
+.colours{
+  background:linear-gradient(135deg,#fbc2eb,#a6c1ee);
 }
 
-.colours {
-  background: linear-gradient(145deg,#ffe5d2,#fff9f4);
+.rhymes{
+  background:linear-gradient(135deg,#84fab0,#8fd3f4);
 }
 
-.rhymes {
-  background: linear-gradient(145deg,#e9ddff,#fbf8ff);
+.quiz{
+  background:linear-gradient(135deg,#fccb90,#d57eeb);
 }
 
-.quiz {
-  background: linear-gradient(145deg,#ffdfe1,#fff8f8);
-}
-
-/* WELCOME BUTTON */
-
-.sound-button {
-  margin-top: 25px;
-  border: none;
-  color: white;
-  background: linear-gradient(
-    135deg,
-    #00b894,
-    #00a383
-  );
-  padding: 16px 30px;
-  border-radius: 30px;
-  font-size: 17px;
-  font-weight: 800;
-  box-shadow: 0 8px 18px rgba(0,184,148,0.25);
-}
-
-.sound-button:active {
-  transform: scale(0.95);
+.games{
+  background:linear-gradient(135deg,#fa709a,#fee140);
 }
 
 /* FOOTER */
 
-footer {
-  padding: 22px 10px 28px;
-  color: #777487;
-  font-size: 14px;
+.footer{
+  text-align:center;
+  color:white;
+  margin:25px 0 10px;
+  font-size:14px;
 }
 
-.heart {
-  color: #e84393;
+/* MOBILE */
+
+@media(max-width:500px){
+
+  .header h1{
+    font-size:28px;
+  }
+
+  .header .star{
+    font-size:38px;
+  }
+
+  .welcome h2{
+    font-size:24px;
+  }
+
+  .cards{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+
+  .card{
+    min-height:160px;
+    padding:18px 8px;
+  }
+
+  .icon{
+    font-size:43px;
+  }
+
+  .card h3{
+    font-size:18px;
+  }
+
+  .card p{
+    font-size:12px;
+  }
 }
-
-/* SMALL MOBILE */
-
-@media (max-width: 380px) {
-
-  .grid {
-    gap: 10px;
-  }
-
-  .learn-button {
-    min-height: 140px;
-  }
-
-  .icon {
-    font-size: 43px;
-  }
-
-  .bangla-icon {
-    font-size: 46px;
-  }
-
-  .card-title {
-    font-size: 17px;
-  }
-
-}
-
 </style>
-
 </head>
 
 <body>
 
-
-<header>
-
-<div class="logo">
-🌟
-</div>
-
-<h1>
-Asim Tech Kids
-</h1>
-
-<p>
-Learn • Play • Discover
-</p>
-
-</header>
-
-
 <div class="container">
 
+  <!-- HEADER -->
 
-<div class="welcome-card">
+  <div class="header">
 
-<div class="welcome-title">
-👋 Hello, Little Learner!
+    <div class="star">🌟</div>
+
+    <h1>Asim Tech Kids</h1>
+
+    <p>Learn • Play • Discover</p>
+
+  </div>
+
+
+  <!-- WELCOME -->
+
+  <div class="welcome">
+
+    <h2>Hello, Little Learner! 👋</h2>
+
+    <p>
+      Let’s learn something amazing today! 🚀
+    </p>
+
+    <button onclick="welcomeSpeech()">
+      🔊 Hear Welcome
+    </button>
+
+  </div>
+
+
+  <!-- LEARNING CARDS -->
+
+  <div class="cards">
+
+    <!-- ENGLISH -->
+
+    <a class="card english" href="alphabet.html">
+
+      <div class="icon">🔤</div>
+
+      <h3>English</h3>
+
+      <p>Learn A to Z</p>
+
+    </a>
+
+
+    <!-- NUMBERS -->
+
+    <a class="card numbers" href="numbers.html">
+
+      <div class="icon">🔢</div>
+
+      <h3>Numbers</h3>
+
+      <p>Learn 1 to 100</p>
+
+    </a>
+
+
+    <!-- BANGLA -->
+
+    <a class="card bangla" href="bangla.html">
+
+      <div class="icon">অ</div>
+
+      <h3>বাংলা</h3>
+
+      <p>বাংলা বর্ণমালা শিখি</p>
+
+    </a>
+
+
+    <!-- ANIMALS -->
+
+    <a class="card animals" href="animals.html">
+
+      <div class="icon">🐶</div>
+
+      <h3>Animals</h3>
+
+      <p>Learn animals & sounds</p>
+
+    </a>
+
+
+    <!-- COLOURS -->
+
+    <a class="card colours" href="colours.html">
+
+      <div class="icon">🌈</div>
+
+      <h3>Colours</h3>
+
+      <p>Learn beautiful colours</p>
+
+    </a>
+
+
+    <!-- RHYMES -->
+
+    <a class="card rhymes" href="rhymes.html">
+
+      <div class="icon">🎵</div>
+
+      <h3>Rhymes</h3>
+
+      <p>Sing & learn rhymes</p>
+
+    </a>
+
+
+    <!-- QUIZ -->
+
+    <a class="card quiz" href="quiz.html">
+
+      <div class="icon">🏆</div>
+
+      <h3>Quiz</h3>
+
+      <p>Test your knowledge</p>
+
+    </a>
+
+
+    <!-- GAMES -->
+
+    <a class="card games" href="games.html">
+
+      <div class="icon">🎮</div>
+
+      <h3>Games</h3>
+
+      <p>Play & learn fun games</p>
+
+    </a>
+
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+
+    ❤️ Powered by Asim Tech
+
+  </div>
+
 </div>
-
-<div class="welcome-text">
-Let's learn something amazing today! 🚀
-</div>
-
-</div>
-
-
-<div class="section-title">
-📚 Explore & Learn
-</div>
-
-
-<div class="grid">
-
-
-<button class="learn-button english"
-onclick="openPage('alphabet.html')">
-
-<span class="icon">🔤</span>
-
-<div class="card-title">
-English
-</div>
-
-<div class="card-text">
-Alphabet A - Z
-</div>
-
-</button>
-
-
-<button class="learn-button numbers"
-onclick="openPage('numbers.html')">
-
-<span class="icon">🔢</span>
-
-<div class="card-title">
-Numbers
-</div>
-
-<div class="card-text">
-Learn 1 - 100
-</div>
-
-</button>
-
-
-<button class="learn-button bangla"
-onclick="openPage('bangla.html')">
-
-<span class="bangla-icon">অ</span>
-
-<div class="card-title">
-বাংলা
-</div>
-
-<div class="card-text">
-বর্ণমালা শিখি
-</div>
-
-</button>
-
-
-<button class="learn-button animals"
-onclick="openPage('animals.html')">
-
-<span class="icon">🐯</span>
-
-<div class="card-title">
-Animals
-</div>
-
-<div class="card-text">
-Animal Sounds
-</div>
-
-</button>
-
-
-<button class="learn-button colours"
-onclick="openPage('colours.html')">
-
-<span class="icon">🎨</span>
-
-<div class="card-title">
-Colours
-</div>
-
-<div class="card-text">
-Learn Colours
-</div>
-
-</button>
-
-
-<button class="learn-button rhymes"
-onclick="openPage('rhymes.html')">
-
-<span class="icon">🎵</span>
-
-<div class="card-title">
-Rhymes
-</div>
-
-<div class="card-text">
-Sing & Learn
-</div>
-
-</button>
-
-
-<button class="learn-button quiz"
-onclick="openPage('quiz.html')">
-
-<span class="icon">🧩</span>
-
-<div class="card-title">
-Quiz
-</div>
-
-<div class="card-text">
-Play & Test
-</div>
-
-</button>
-
-
-</div>
-
-
-<button class="sound-button"
-onclick="welcomeSound()">
-
-🔊 Hear Welcome
-
-</button>
-
-
-</div>
-
-
-<footer>
-
-Powered by Asim Tech
-<span class="heart">❤️</span>
-
-</footer>
 
 
 <script>
 
-function openPage(page) {
+function welcomeSpeech(){
 
-  window.location.href = page;
+  if("speechSynthesis" in window){
 
-}
+    speechSynthesis.cancel();
 
+    const speech =
+      new SpeechSynthesisUtterance(
+        "Hello little learner! Welcome to Asim Tech Kids. Let's learn, play and discover!"
+      );
 
-function welcomeSound() {
+    speech.lang="en-US";
+    speech.rate=0.75;
+    speech.pitch=1.2;
 
-  speak(
-    "Hello little learner! Welcome to Asim Tech Kids. Let's learn, play and discover!"
-  );
-
-}
-
-
-function speak(text) {
-
-  if ("speechSynthesis" in window) {
-
-    window.speechSynthesis.cancel();
-
-    const message =
-      new SpeechSynthesisUtterance(text);
-
-    message.lang = "en-US";
-
-    message.rate = 0.8;
-
-    message.pitch = 1.2;
-
-    window.speechSynthesis.speak(message);
+    speechSynthesis.speak(speech);
 
   }
 
@@ -508,5 +390,4 @@ function speak(text) {
 </script>
 
 </body>
-
 </html>
