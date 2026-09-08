@@ -10,14 +10,12 @@
 
   <title>Numbers - Asim Tech Kids</title>
 
-
   <style>
 
     * {
       box-sizing: border-box;
       font-family: Arial, sans-serif;
     }
-
 
     body {
       margin: 0;
@@ -26,7 +24,6 @@
       overflow-x: hidden;
     }
 
-
     header {
       background: #6c5ce7;
       color: white;
@@ -34,25 +31,21 @@
       border-radius: 0 0 30px 30px;
     }
 
-
     h1 {
       margin: 5px;
       font-size: 28px;
     }
-
 
     header p {
       margin: 8px;
       font-size: 16px;
     }
 
-
     .container {
       padding: 20px;
       max-width: 650px;
       margin: auto;
     }
-
 
     .learning-card {
       background: white;
@@ -62,21 +55,17 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
 
-
     .number {
       font-size: 85px;
       font-weight: bold;
       color: #6c5ce7;
       margin: 5px;
-
       animation: none;
     }
-
 
     .number.animate {
       animation: bounce 0.7s ease;
     }
-
 
     @keyframes bounce {
 
@@ -96,13 +85,11 @@
 
     }
 
-
     .word {
       font-size: 28px;
       font-weight: bold;
       margin: 10px;
     }
-
 
     .listen-button {
       background: #00b894;
@@ -115,14 +102,12 @@
       margin-top: 10px;
     }
 
-
     .numbers {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 9px;
       margin-top: 20px;
     }
-
 
     .number-button {
       border: none;
@@ -132,13 +117,12 @@
       font-size: 18px;
       font-weight: bold;
       box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+      cursor: pointer;
     }
-
 
     .number-button:active {
       transform: scale(0.9);
     }
-
 
     .home-button {
       margin-top: 20px;
@@ -151,7 +135,6 @@
       font-weight: bold;
     }
 
-
     footer {
       margin-top: 25px;
       padding: 18px;
@@ -159,14 +142,12 @@
       font-size: 14px;
     }
 
-
     .star {
       position: fixed;
       font-size: 25px;
       pointer-events: none;
       animation: fly 1s ease-out forwards;
     }
-
 
     @keyframes fly {
 
@@ -192,9 +173,7 @@
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -204,29 +183,17 @@
 
 </header>
 
-
-
 <div class="container">
-
 
   <div class="learning-card">
 
-
-    <div class="number"
-         id="number">
-
+    <div class="number" id="number">
       1
-
     </div>
 
-
-    <div class="word"
-         id="word">
-
+    <div class="word" id="word">
       One
-
     </div>
-
 
     <button class="listen-button"
             onclick="listenCurrent()">
@@ -235,17 +202,10 @@
 
     </button>
 
-
   </div>
 
-
-
-  <div class="numbers"
-       id="numbers">
-
+  <div class="numbers" id="numbers">
   </div>
-
-
 
   <button class="home-button"
           onclick="location.href='index.html'">
@@ -254,10 +214,7 @@
 
   </button>
 
-
 </div>
-
-
 
 <footer>
 
@@ -265,10 +222,7 @@
 
 </footer>
 
-
-
 <script>
-
 
 const words = [
 
@@ -384,30 +338,26 @@ const words = [
 
 ];
 
-
 let currentNumber = 1;
 
 
+/* CREATE NUMBER BUTTONS */
 
 function createNumberButtons() {
 
   const container =
     document.getElementById("numbers");
 
-
   for (let i = 1; i <= 100; i++) {
 
     const button =
       document.createElement("button");
 
-
     button.className =
       "number-button";
 
-
     button.innerText =
       i;
-
 
     button.onclick =
       function() {
@@ -416,7 +366,6 @@ function createNumberButtons() {
 
       };
 
-
     container.appendChild(button);
 
   }
@@ -424,57 +373,50 @@ function createNumberButtons() {
 }
 
 
+/* SHOW NUMBER */
 
 function showNumber(number) {
 
   currentNumber = number;
 
-
   const numberElement =
     document.getElementById("number");
-
 
   const wordElement =
     document.getElementById("word");
 
-
   numberElement.classList.remove("animate");
-
 
   void numberElement.offsetWidth;
 
-
   numberElement.classList.add("animate");
-
 
   numberElement.innerText =
     number;
 
-
   wordElement.innerText =
     words[number - 1];
 
-
-  listenCurrent();
-
+  /* No automatic speech here */
 
   celebration();
 
 }
 
 
+/* LISTEN BUTTON */
 
 function listenCurrent() {
 
   speak(
-    currentNumber +
-    ". " +
+    "Number " +
     words[currentNumber - 1]
   );
 
 }
 
 
+/* SPEECH */
 
 function speak(text) {
 
@@ -482,22 +424,17 @@ function speak(text) {
 
     window.speechSynthesis.cancel();
 
-
     const message =
       new SpeechSynthesisUtterance(text);
-
 
     message.lang =
       "en-US";
 
-
     message.rate =
       0.75;
 
-
     message.pitch =
       1.2;
-
 
     window.speechSynthesis.speak(message);
 
@@ -506,22 +443,20 @@ function speak(text) {
 }
 
 
+/* CELEBRATION */
 
 function celebration() {
 
   const symbols =
     ["⭐", "✨", "🌟", "🎉", "💫"];
 
-
   for (let i = 0; i < 8; i++) {
 
     const star =
       document.createElement("div");
 
-
     star.className =
       "star";
-
 
     star.innerText =
       symbols[
@@ -530,29 +465,23 @@ function celebration() {
         )
       ];
 
-
     star.style.left =
       "50%";
 
-
     star.style.top =
       "40%";
-
 
     star.style.setProperty(
       "--x",
       (Math.random() * 300 - 150) + "px"
     );
 
-
     star.style.setProperty(
       "--y",
       (Math.random() * 300 - 150) + "px"
     );
 
-
     document.body.appendChild(star);
-
 
     setTimeout(function() {
 
@@ -565,15 +494,13 @@ function celebration() {
 }
 
 
+/* START */
 
 createNumberButtons();
 
-
 showNumber(1);
 
-
 </script>
-
 
 </body>
 
