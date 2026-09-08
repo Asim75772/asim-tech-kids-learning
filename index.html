@@ -19,71 +19,112 @@ content="width=device-width, initial-scale=1.0">
 
 body {
   margin: 0;
-  background: linear-gradient(180deg, #fdfbff, #eef3ff);
+  color: #25233a;
+  background:
+    radial-gradient(circle at 10% 10%, #ffe3f1 0, transparent 25%),
+    radial-gradient(circle at 90% 20%, #dff7ff 0, transparent 25%),
+    radial-gradient(circle at 50% 100%, #fff0c9 0, transparent 30%),
+    #f7f7ff;
   text-align: center;
-  color: #333;
 }
 
-/* TOP HEADER */
+/* HEADER */
 
 header {
-  background: linear-gradient(135deg, #6c5ce7, #a55eea);
+  position: relative;
+  overflow: hidden;
   color: white;
-  padding: 32px 15px 38px;
-  border-radius: 0 0 35px 35px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  padding: 32px 18px 42px;
+  background: linear-gradient(
+    135deg,
+    #5f27cd,
+    #7c4dff,
+    #00b894
+  );
+  border-radius: 0 0 42px 42px;
+  box-shadow: 0 12px 30px rgba(82, 55, 160, 0.25);
+}
+
+header:before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  top: -80px;
+  left: -50px;
+}
+
+header:after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  right: -40px;
+  bottom: -50px;
 }
 
 .logo {
-  font-size: 48px;
-  margin-bottom: 5px;
+  position: relative;
+  font-size: 50px;
+  z-index: 1;
 }
 
 h1 {
-  margin: 5px;
-  font-size: 30px;
+  position: relative;
+  z-index: 1;
+  margin: 6px 0;
+  font-size: 31px;
 }
 
 header p {
-  margin: 10px 0 0;
-  font-size: 17px;
+  position: relative;
+  z-index: 1;
+  margin: 8px 0 0;
+  font-size: 16px;
+  opacity: 0.95;
 }
 
 /* MAIN */
 
 .container {
-  padding: 22px 16px;
-  max-width: 700px;
+  max-width: 720px;
   margin: auto;
+  padding: 22px 16px 30px;
 }
 
 /* WELCOME */
 
 .welcome-card {
-  background: white;
-  border-radius: 28px;
-  padding: 20px;
-  margin-bottom: 22px;
-  box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 21px 18px;
+  margin-top: -4px;
+  box-shadow: 0 10px 30px rgba(65,50,120,0.12);
+  border: 1px solid rgba(255,255,255,0.9);
 }
 
 .welcome-title {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 800;
 }
 
 .welcome-text {
-  margin-top: 8px;
-  font-size: 16px;
-  color: #666;
+  margin-top: 7px;
+  color: #74718a;
+  font-size: 15px;
 }
 
-/* SECTION TITLE */
+/* SECTION */
 
 .section-title {
-  font-size: 22px;
-  font-weight: bold;
-  margin: 20px 0 15px;
+  margin: 25px 0 15px;
+  font-size: 21px;
+  font-weight: 800;
 }
 
 /* GRID */
@@ -97,14 +138,27 @@ header p {
 /* CARDS */
 
 .learn-button {
-  border: none;
-  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 27px;
+  min-height: 155px;
   padding: 20px 8px;
-  min-height: 145px;
-  background: white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.10);
   cursor: pointer;
-  transition: 0.2s;
+  box-shadow: 0 9px 22px rgba(50,45,90,0.12);
+  transition: transform 0.18s ease,
+              box-shadow 0.18s ease;
+}
+
+.learn-button:before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  top: -30px;
+  right: -25px;
 }
 
 .learn-button:active {
@@ -112,72 +166,80 @@ header p {
 }
 
 .icon {
-  font-size: 48px;
+  position: relative;
   display: block;
+  font-size: 50px;
   margin-bottom: 9px;
 }
 
 .bangla-icon {
-  font-size: 48px;
-  font-weight: bold;
+  position: relative;
   display: block;
-  margin-bottom: 9px;
+  font-size: 52px;
+  font-weight: 900;
   color: #6c5ce7;
+  margin-bottom: 7px;
 }
 
 .card-title {
-  font-size: 18px;
-  font-weight: bold;
+  position: relative;
+  font-size: 19px;
+  font-weight: 800;
 }
 
 .card-text {
-  font-size: 13px;
-  color: #777;
+  position: relative;
   margin-top: 5px;
+  font-size: 12px;
+  color: #6d6a7d;
 }
 
-/* DIFFERENT CARD BACKGROUNDS */
+/* COLOURS */
 
 .english {
-  background: #fff8e7;
+  background: linear-gradient(145deg,#fff3c4,#fffdf2);
 }
 
 .numbers {
-  background: #eef8ff;
+  background: linear-gradient(145deg,#dff4ff,#f8fdff);
 }
 
 .bangla {
-  background: #fff0f6;
+  background: linear-gradient(145deg,#ffe2ef,#fff7fb);
 }
 
 .animals {
-  background: #effff3;
+  background: linear-gradient(145deg,#dcffe9,#f8fffb);
 }
 
 .colours {
-  background: #fff4e8;
+  background: linear-gradient(145deg,#ffe5d2,#fff9f4);
 }
 
 .rhymes {
-  background: #f3edff;
+  background: linear-gradient(145deg,#e9ddff,#fbf8ff);
 }
 
 .quiz {
-  background: #fff0f0;
+  background: linear-gradient(145deg,#ffdfe1,#fff8f8);
 }
 
-/* WELCOME SOUND */
+/* WELCOME BUTTON */
 
 .sound-button {
   margin-top: 25px;
-  background: #00b894;
-  color: white;
   border: none;
-  padding: 16px 28px;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #00b894,
+    #00a383
+  );
+  padding: 16px 30px;
   border-radius: 30px;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+  font-size: 17px;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(0,184,148,0.25);
 }
 
 .sound-button:active {
@@ -187,9 +249,8 @@ header p {
 /* FOOTER */
 
 footer {
-  margin-top: 25px;
-  padding: 22px 10px;
-  color: #666;
+  padding: 22px 10px 28px;
+  color: #777487;
   font-size: 14px;
 }
 
@@ -197,7 +258,7 @@ footer {
   color: #e84393;
 }
 
-/* MOBILE */
+/* SMALL MOBILE */
 
 @media (max-width: 380px) {
 
@@ -206,12 +267,19 @@ footer {
   }
 
   .learn-button {
-    min-height: 135px;
+    min-height: 140px;
   }
 
-  .icon,
+  .icon {
+    font-size: 43px;
+  }
+
   .bangla-icon {
-    font-size: 42px;
+    font-size: 46px;
+  }
+
+  .card-title {
+    font-size: 17px;
   }
 
 }
@@ -222,8 +290,6 @@ footer {
 
 <body>
 
-
-<!-- HEADER -->
 
 <header>
 
@@ -236,56 +302,40 @@ Asim Tech Kids
 </h1>
 
 <p>
-Fun Learning • Play • Discover
+Learn • Play • Discover
 </p>
 
 </header>
 
 
-<!-- MAIN -->
-
 <div class="container">
 
-
-<!-- WELCOME CARD -->
 
 <div class="welcome-card">
 
 <div class="welcome-title">
-
-👋 Welcome Little Learner!
-
+👋 Hello, Little Learner!
 </div>
 
 <div class="welcome-text">
-
-Let's learn something new today! 🚀
-
+Let's learn something amazing today! 🚀
 </div>
 
 </div>
 
 
 <div class="section-title">
-
-📚 What would you like to learn?
-
+📚 Explore & Learn
 </div>
 
-
-<!-- LEARNING GRID -->
 
 <div class="grid">
 
 
-<!-- ENGLISH -->
-
 <button class="learn-button english"
 onclick="openPage('alphabet.html')">
 
-<span class="icon">
-🔤
-</span>
+<span class="icon">🔤</span>
 
 <div class="card-title">
 English
@@ -298,74 +348,58 @@ Alphabet A - Z
 </button>
 
 
-<!-- NUMBERS -->
-
 <button class="learn-button numbers"
 onclick="openPage('numbers.html')">
 
-<span class="icon">
-🔢
-</span>
+<span class="icon">🔢</span>
 
 <div class="card-title">
 Numbers
 </div>
 
 <div class="card-text">
-1 - 100
+Learn 1 - 100
 </div>
 
 </button>
 
 
-<!-- BANGLA -->
-
 <button class="learn-button bangla"
 onclick="openPage('bangla.html')">
 
-<span class="bangla-icon">
-অ
-</span>
+<span class="bangla-icon">অ</span>
 
 <div class="card-title">
 বাংলা
 </div>
 
 <div class="card-text">
-বর্ণমালা
+বর্ণমালা শিখি
 </div>
 
 </button>
 
 
-<!-- ANIMALS -->
-
 <button class="learn-button animals"
 onclick="openPage('animals.html')">
 
-<span class="icon">
-🐯
-</span>
+<span class="icon">🐯</span>
 
 <div class="card-title">
 Animals
 </div>
 
 <div class="card-text">
-Learn Animal Sounds
+Animal Sounds
 </div>
 
 </button>
 
 
-<!-- COLOURS -->
-
 <button class="learn-button colours"
 onclick="openPage('colours.html')">
 
-<span class="icon">
-🎨
-</span>
+<span class="icon">🎨</span>
 
 <div class="card-title">
 Colours
@@ -378,14 +412,10 @@ Learn Colours
 </button>
 
 
-<!-- RHYMES -->
-
 <button class="learn-button rhymes"
 onclick="openPage('rhymes.html')">
 
-<span class="icon">
-🎵
-</span>
+<span class="icon">🎵</span>
 
 <div class="card-title">
 Rhymes
@@ -398,21 +428,17 @@ Sing & Learn
 </button>
 
 
-<!-- QUIZ -->
-
 <button class="learn-button quiz"
 onclick="openPage('quiz.html')">
 
-<span class="icon">
-🧩
-</span>
+<span class="icon">🧩</span>
 
 <div class="card-title">
 Quiz
 </div>
 
 <div class="card-text">
-Test Your Brain
+Play & Test
 </div>
 
 </button>
@@ -420,8 +446,6 @@ Test Your Brain
 
 </div>
 
-
-<!-- WELCOME SOUND -->
 
 <button class="sound-button"
 onclick="welcomeSound()">
@@ -434,8 +458,6 @@ onclick="welcomeSound()">
 </div>
 
 
-<!-- FOOTER -->
-
 <footer>
 
 Powered by Asim Tech
@@ -446,9 +468,6 @@ Powered by Asim Tech
 
 <script>
 
-
-/* OPEN PAGE */
-
 function openPage(page) {
 
   window.location.href = page;
@@ -456,18 +475,14 @@ function openPage(page) {
 }
 
 
-/* WELCOME VOICE */
-
 function welcomeSound() {
 
   speak(
-    "Welcome to Asim Tech Kids Learning. Let's learn and have fun!"
+    "Hello little learner! Welcome to Asim Tech Kids. Let's learn, play and discover!"
   );
 
 }
 
-
-/* SPEECH */
 
 function speak(text) {
 
