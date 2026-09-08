@@ -1,64 +1,258 @@
-    <div class="grid">
+<!DOCTYPE html>
+<html lang="en">
 
-      <button onclick="speak('English')">
-        <span class="icon">🔤</span>
-        English
-      </button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <button onclick="speak('Numbers')">
-        <span class="icon">🔢</span>
-        Numbers
-      </button>
+  <title>Asim Tech Kids Learning</title>
 
-      <button onclick="speak('বাংলা')">
-        <span class="icon">🇧🇩</span>
-        বাংলা
-      </button>
+  <style>
 
-      <button onclick="speak('Animals')">
-        <span class="icon">🐯</span>
-        Animals
-      </button>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-      <button onclick="speak('Colours')">
-        <span class="icon">🎨</span>
-        Colours
-      </button>
+    body {
+      margin: 0;
+      background: #f5f7ff;
+      text-align: center;
+    }
 
-      <button onclick="speak('Quiz')">
-        <span class="icon">🧩</span>
-        Quiz
-      </button>
+    header {
+      background: #6c5ce7;
+      color: white;
+      padding: 28px 10px;
+      border-radius: 0 0 30px 30px;
+    }
 
-    </div>
+    h1 {
+      margin: 5px;
+      font-size: 29px;
+    }
 
-    <button class="sound" onclick="welcomeSound()">
-      🔊 Hear Welcome
-    </button>
+    header p {
+      margin: 8px;
+      font-size: 16px;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .welcome {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 10px 0 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 520px;
+      margin: auto;
+    }
+
+    .learn-button {
+      border: none;
+      border-radius: 22px;
+      padding: 24px 8px;
+      font-size: 18px;
+      font-weight: bold;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+      cursor: pointer;
+    }
+
+    .learn-button:active {
+      transform: scale(0.95);
+    }
+
+    .icon {
+      font-size: 42px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .sound-button {
+      margin-top: 25px;
+      background: #00b894;
+      color: white;
+      border: none;
+      padding: 16px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 18px;
+      color: #666;
+      font-size: 14px;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <h1>🌟 Asim Tech Kids</h1>
+
+  <p>Fun Learning for Kids</p>
+
+</header>
+
+
+<div class="container">
+
+
+  <div class="welcome">
+
+    👋 Welcome Little Learner!
 
   </div>
 
-  <footer>
-    Powered by Asim Tech ❤️
-  </footer>
 
-  <script>
+  <div class="grid">
 
-    function speak(text) {
-      window.speechSynthesis.cancel();
 
-      const message = new SpeechSynthesisUtterance(text);
-      message.rate = 0.8;
-      message.pitch = 1.2;
+    <!-- ENGLISH -->
 
-      window.speechSynthesis.speak(message);
-    }
+    <button class="learn-button"
+            onclick="location.href='alphabet.html'">
 
-    function welcomeSound() {
-      speak("Welcome to Asim Tech Kids Learning");
-    }
+      <span class="icon">🔤</span>
 
-  </script>
+      English
+
+    </button>
+
+
+    <!-- NUMBERS -->
+
+    <button class="learn-button"
+            onclick="location.href='numbers.html'">
+
+      <span class="icon">🔢</span>
+
+      Numbers
+
+    </button>
+
+
+    <!-- BANGLA -->
+
+    <button class="learn-button"
+            onclick="speak('বাংলা')">
+
+      <span class="icon">অ</span>
+
+      বাংলা
+
+    </button>
+
+
+    <!-- ANIMALS -->
+
+    <button class="learn-button"
+            onclick="speak('Animals')">
+
+      <span class="icon">🐯</span>
+
+      Animals
+
+    </button>
+
+
+    <!-- COLOURS -->
+
+    <button class="learn-button"
+            onclick="speak('Colours')">
+
+      <span class="icon">🎨</span>
+
+      Colours
+
+    </button>
+
+
+    <!-- QUIZ -->
+
+    <button class="learn-button"
+            onclick="speak('Quiz')">
+
+      <span class="icon">🧩</span>
+
+      Quiz
+
+    </button>
+
+
+  </div>
+
+
+  <button class="sound-button"
+          onclick="welcomeSound()">
+
+    🔊 Hear Welcome
+
+  </button>
+
+
+</div>
+
+
+<footer>
+
+  Powered by Asim Tech ❤️
+
+</footer>
+
+
+
+<script>
+
+
+function speak(text) {
+
+  if ('speechSynthesis' in window) {
+
+    window.speechSynthesis.cancel();
+
+    const message =
+      new SpeechSynthesisUtterance(text);
+
+    message.rate = 0.8;
+
+    message.pitch = 1.2;
+
+    window.speechSynthesis.speak(message);
+
+  }
+
+}
+
+
+function welcomeSound() {
+
+  speak(
+    "Welcome to Asim Tech Kids Learning"
+  );
+
+}
+
+
+</script>
+
 
 </body>
+
 </html>
