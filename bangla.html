@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Asim Tech - বাংলা শেখা</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #fff8e7;
+      text-align: center;
+    }
+
+    header {
+      background: #e17055;
+      color: white;
+      padding: 20px;
+      border-radius: 0 0 25px 25px;
+    }
+
+    h1 {
+      margin: 5px;
+      font-size: 28px;
+    }
+
+    .back {
+      margin-top: 12px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      background: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .card {
+      background: white;
+      max-width: 400px;
+      margin: 25px auto;
+      padding: 25px;
+      border-radius: 25px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+    }
+
+    .big-letter {
+      font-size: 90px;
+      font-weight: bold;
+      color: #e17055;
+    }
+
+    .word {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 10px;
+    }
+
+    .listen {
+      background: #00b894;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .letters {
+      max-width: 550px;
+      margin: auto;
+      padding: 15px;
+    }
+
+    .letter-button {
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      border: none;
+      border-radius: 15px;
+      background: white;
+      font-size: 30px;
+      font-weight: bold;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    }
+
+    .letter-button:active {
+      transform: scale(0.9);
+    }
+
+    .section-title {
+      margin-top: 25px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    footer {
+      margin: 25px;
+      color: #777;
+    }
+  </style>
+
+</head>
+
+
+<body>
+
+<header>
+
+  <h1>🇮🇳 বাংলা শেখা</h1>
+
+  <button class="back"
+          onclick="location.href='index.html'">
+
+    🏠 Home
+
+  </button>
+
+</header>
+
+
+<div class="card">
+
+  <div id="bigLetter"
+       class="big-letter">
+
+    অ
+
+  </div>
+
+  <div id="word"
+       class="word">
+
+    অ - অজগর 🐍
+
+  </div>
+
+  <button class="listen"
+          onclick="listen()">
+
+    🔊 শুনুন
+
+  </button>
+
+</div>
+
+
+<div class="section-title">
+  স্বরবর্ণ
+</div>
+
+<div id="vowels"
+     class="letters">
+</div>
+
+
+<div class="section-title">
+  ব্যঞ্জনবর্ণ
+</div>
+
+<div id="consonants"
+     class="letters">
+</div>
+
+
+<footer>
+  Powered by Asim Tech ❤️
+</footer>
+
+
+<script>
+
+const vowels = {
+
+  "অ": "অ - অজগর",
+  "আ": "আ - আম",
+  "ই": "ই - ইলিশ",
+  "ঈ": "ঈ - ঈগল",
+  "উ": "উ - উট",
+  "ঊ": "ঊ - ঊষা",
+  "ঋ": "ঋ - ঋষি",
+  "এ": "এ - একতারা",
+  "ঐ": "ঐ - ঐরাবত",
+  "ও": "ও - ওল",
+  "ঔ": "ঔ - ঔষধ"
+
+};
+
+
+const consonants = {
+
+  "ক": "ক - কলা",
+  "খ": "খ - খরগোশ",
+  "গ": "গ - গরু",
+  "ঘ": "ঘ - ঘড়ি",
+  "ঙ": "ঙ - বর্ণ",
+  "চ": "চ - চাঁদ",
+  "ছ": "ছ - ছাতা",
+  "জ": "জ - জাহাজ",
+  "ঝ": "ঝ - ঝর্ণা",
+  "ঞ": "ঞ - বর্ণ",
+  "ট": "ট - টিয়া",
+  "ঠ": "ঠ - ঠেলা",
+  "ড": "ড - ডাব",
+  "ঢ": "ঢ - ঢোল",
+  "ণ": "ণ - বর্ণ",
+  "ত": "ত - তাল",
+  "থ": "থ - থালা",
+  "দ": "দ - দোয়েল",
+  "ধ": "ধনুক",
+  "ন": "ন - নৌকা",
+  "প": "প - পাখি",
+  "ফ": "ফ - ফুল",
+  "ব": "ব - বাঘ",
+  "ভ": "ভ - ভাত",
+  "ম": "ম - মাছ",
+  "য": "য - যাদু",
+  "র": "র - রথ",
+  "ল": "ল - লাটিম",
+  "শ": "শ - শাপলা",
+  "ষ": "ষ - ষাঁড়",
+  "স": "স - সাপ",
+  "হ": "হ - হাতি"
+
+};
+
+
+let currentText = "অ";
+
+
+function showLetter(letter, text) {
+
+  currentText = text;
+
+  document.getElementById("bigLetter")
+          .innerText = letter;
+
+  document.getElementById("word")
+          .innerText = text;
+
+  speak(text);
+
+}
+
+
+function listen() {
+
+  speak(currentText);
+
+}
+
+
+function speak(text) {
+
+  if ("speechSynthesis" in window) {
+
+    window.speechSynthesis.cancel();
+
+    const voice =
+      new SpeechSynthesisUtterance(text);
+
+    voice.lang = "bn-IN";
+    voice.rate = 0.75;
+    voice.pitch = 1.2;
+
+    window.speechSynthesis.speak(voice);
+
+  }
+
+}
+
+
+function createButtons(data, containerId) {
+
+  const container =
+    document.getElementById(containerId);
+
+  for (let letter in data) {
+
+    const button =
+      document.createElement("button");
+
+    button.className =
+      "letter-button";
+
+    button.innerText =
+      letter;
+
+    button.onclick =
+      function() {
+
+        showLetter(
+          letter,
+          data[letter]
+        );
+
+      };
+
+    container.appendChild(button);
+
+  }
+
+}
+
+
+createButtons(vowels, "vowels");
+
+createButtons(consonants, "consonants");
+
+</script>
+
+</body>
+
+</html>
